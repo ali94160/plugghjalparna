@@ -1,0 +1,2 @@
+const mongoose = global.mongoose;
+
