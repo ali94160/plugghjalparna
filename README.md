@@ -1,6 +1,6 @@
 # PluggHjalparna
 
-This project is made by: [https://github.com/ali94160](https://github.com/ali94160).
+This project is made by: [https://github.com/ali94160](Ali)
 
 ## What is PluggHjälparna?
 It's a forum made for students that needs help with their homework. Also a way to get new friends and ask questions and tips.
