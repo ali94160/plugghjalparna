@@ -5,6 +5,7 @@ const Users = mongoose.model('user', {
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   password: { type: String, required: true },
+  createdTime: {type: String}
 });
 
 

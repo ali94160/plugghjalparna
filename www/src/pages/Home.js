@@ -27,6 +27,7 @@ const Home = () => {
   
   const exploreHandler = () => {
     console.log("tar mig till en sida");
+    
   }
 
 

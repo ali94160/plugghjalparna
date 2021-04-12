@@ -19,12 +19,16 @@ export default function CreateUser () {
   const createUser = async e => {
     e.preventDefault();
     
+    const dateToday = new Date();
+    const getTodayToString = dateToday.toString().substring(0, 15);
+    
     const user = {
       firstName: firstName.current.value,
       lastName: lastName.current.value,
       email: email.current.value,
       password: password.current.value,
-      confirmPassword: confirmPassword.current.value
+      confirmPassword: confirmPassword.current.value,
+      createdTime: getTodayToString
     }
     const res = await addUser(user);
     if (!res) {
