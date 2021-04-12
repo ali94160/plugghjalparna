@@ -17,22 +17,38 @@ Project is using the following:
 - Material UI
 - Basic HTML & CSS.
 
-### `Goal of this project?`
+## `Goal of this project?`
 
 I would like to create this forum to learn new things and improve as a coder. 
 Some of the functionality in the forum is:
-- Login system fully secure with crypto-password and removed from the frontend completely.
-- Users well be saved in a session. (Will not have to re-login if they close the webside or refresh.)
-- There will be two User-Roles: Administrator and Moderator.
+* Login system fully secure with crypto-password and removed from the frontend completely.
+* Users well be saved in a session. (Will not have to re-login if they close the webside or refresh.)
+* Users will be able to create a post in any Sub-forum.
+* Users can comment on posts and "like".
+* There will be two User-Roles: Administrator and Moderator.
 
-### `Administator Access:`
+## `Administator Access:`
 * Ban users 1 day > Permanent
 * Access to the ban-list that will show all users who has been banned.
-* Can "Lock" and "Pin" a post.
+* Can "Lock/unlock" and "Pin" a post.
 * Can manage the roles (Promote/demote)
 * Access to the whole website statistics page. 
 * Make News Post for FrontPage
 * Administator Icon by their name.
+
+## `Moderator Access:`
+* Ban users 1 day > 3 days
+* Can "Lock/unlock" and "Pin" posts.
+* Make News Posts for FrontPage.
+* Moderator Icon by their name.
+
+There will also be a (Premium Feature) for users to buy.
+## `Premium Users:`
+* Acess to change their profile.
+* Nice Premium Icon by their name.
+* A totaly different website theme experience.
+* Upload their own "profile-image".
+* And more extra features...
 
 
 CopyRight PluggHjalparna - All Rights Reserved. (2021)
