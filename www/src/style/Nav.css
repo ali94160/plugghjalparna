@@ -1,0 +1,78 @@
+.nav-bar {
+  z-index: 120 !important;
+  display: grid;
+  grid-template-columns: 15% 75% 10%;
+  height: 10vh;
+  min-height: 50px;
+  background: rgb(255, 255, 255);
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  padding-left: 10px;
+  top: 0;
+  user-select: none;
+  z-index: 999;
+}
+/* Removes background color on click. */
+.nav-bar *:focus {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.links a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s;
+}
+
+.links a:hover,
+.links a:focus {
+  background-size: 100% 2px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.logoImg {
+  width: 8rem;
+  margin: 30px 0 20px 5px;
+}
+
+.logoImg:hover {
+  transform: scale(1.05);
+  transition: 200ms;
+  background-color: transparent;
+}
+
+.nav-bar h4 {
+  margin: 0;
+  margin-left: 10px;
+  align-self: center;
+  color: #f50057;
+}
+
+.links {
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.links a {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: #f50057;
+  letter-spacing: 2.2px;
+  padding-bottom: 5px;
+}

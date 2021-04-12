@@ -1,0 +1,53 @@
+.homeImage {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.exploreBtn {
+  border: 2px solid rgba(255, 255, 255, 0.589);
+  text-decoration: none;
+  padding: 18px 24px;
+  font-size: 14px;
+  line-height: 40px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  outline: none;
+  text-decoration: none;
+  background-color: rgba(255, 234, 234, 0);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.exploreBtn:hover {
+  background-color: rgba(0, 0, 0, 0.349);
+  color: white;
+  transition: 500ms;
+}
+
+.startTravel {
+  margin-left: 5vw;
+  margin-top: 25vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+.startTravel p {
+  font-size: 30px;
+  margin: 0 0 5px 0;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: #f50057;
+  letter-spacing: 6.2px;
+}

@@ -1,0 +1,61 @@
+
+.login{
+  background-image: url("https://i.postimg.cc/DwGYFD3x/New-Project-1.png");
+  object-fit: cover;
+  padding-top: 200px;
+  min-height: 65vh; 
+  background-size: cover;
+  background-repeat: no-repeat; 
+  padding-top: 35vh;
+}
+
+.form-for-login > form > p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #f50057;
+  letter-spacing: 2.2px;
+  text-align: center;
+}
+
+.login > .form-for-login {
+  opacity: 90%;
+  width: 30%;
+  margin: 0 auto;
+  background: #eee;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.form-for-login > form > input{
+  width: 90%;
+  margin: 15px auto;
+  border: none;
+  border-radius: 5px;
+  padding: 1vh;
+  display: block;
+}
+
+.form-for-login button{
+  width: 94%;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  padding: 10px;
+  color: white;
+  background: rgb(68, 68, 248);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 2vh;
+}
+
+.login .snackBarIndex{
+  z-index: 105;
+}
+
+.form-for-login button:hover{
+  Transform: scale(1.02);
+  transition: 300ms;
+}
+.login input[type="email"],[type="password"]{
+  font-size: 2vh;
+}

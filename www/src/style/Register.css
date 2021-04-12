@@ -1,0 +1,96 @@
+.register {
+  /* Set rules to fill background */
+
+  /* Set up proportionate scaling */
+  width: 1929px;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+
+  min-height: 749px;
+}
+
+.register .grid-item-input {
+  position: fixed;
+  min-width: 700px;
+  margin-left: 655px;
+  margin-top: 255px;
+  opacity: 100%;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+}
+
+.register .inner-grid {
+  border-bottom: 1px solid black;
+}
+
+.register .inner-grid:hover {
+  border-bottom: 1px solid rgb(58, 255, 58);
+}
+
+.register .inner-grid input {
+  background: transparent;
+  outline: none;
+}
+
+.alreadyAUser {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #f50057;
+  letter-spacing: 2.2px;
+}
+
+.register .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.register .grid-item {
+  background-color: rgba(128, 128, 128, 0);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.register .inner-grid input {
+  width: 90%;
+  margin: 10px 0 0 0;
+  border: none;
+  border-radius: 2px;
+  padding: 15px 0 1px 1px;
+  display: block;
+}
+
+.register button {
+  width: 93%;
+  display: block;
+  margin: 10px auto;
+  border: none;
+  padding: 10px;
+  color: white;
+  background: rgb(165, 102, 19);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 2vh;
+}
+
+.register button:hover {
+  transform: scale(1.02);
+  transition: 300ms;
+}
+.register {
+  background-size: cover;
+  min-height: 100%;
+  background-image: url("https://www.wyomingpublicmedia.org/sites/wpr/files/201801/genericclassroom.jpg");
+}
+/* LÅS form div med backgrounds bildens tavla */
+.register input[placeholder="First name"],
+[placeholder="Last name"],
+[placeholder="email"],
+[placeholder="password"],
+[placeholder="confirm password"] {
+  font-size: 2vh;
+}
