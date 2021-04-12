@@ -36,7 +36,7 @@ const Home = () => {
    
 
       <div className="home">
-      <img className="homeImage" src="https://i.postimg.cc/DwGYFD3x/New-Project-1.png" alt="" />
+     
 
       <div className="startTravel">
         <p>Till Forumet</p>
