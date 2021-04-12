@@ -12,6 +12,7 @@ const Nav = () => {
 
   useEffect(() => {
     whoIsOnline();
+
   }, [])
   
 
@@ -19,7 +20,7 @@ const Nav = () => {
 
   return (
     <div className="nav-bar">
-     
+    
      <Link to="/"><img className="logoImg" src="https://i.postimg.cc/rmW3W2gM/New-Project-6.png" alt=""/></Link>
       <div className="links">
       <Link to="/">HOME</Link>
@@ -27,7 +28,10 @@ const Nav = () => {
       {!whoAmI && <Link to="/login">LOGIN</Link>}
       {!whoAmI && <Link to="/register">REGISTER</Link>} 
       </div>
-      <ProfileMenu className="profileMenu"/>
+      <div>
+       <ProfileMenu className="profileMenu"/>
+      </div>
+      
 
       </div>
   ); 
