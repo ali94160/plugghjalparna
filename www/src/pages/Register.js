@@ -14,6 +14,17 @@ export default function CreateUser () {
   const email = useRef();
   const password = useRef();
   const confirmPassword = useRef();
+  const country = useRef('');
+  const roles = useRef('Member'); // vid POST
+  const profileImgURL = useRef('');
+  const myPosts = useRef([]); // vid POST
+  const lastTimeOnline = useRef(''); // vid POST
+  const profileViews = useRef(); // vid POST
+  const aboutMeText = useRef(''); 
+  const banTime = useRef(); // VID POST
+
+
+
   const [alreadyAUser, setAlreadyAUser] = useState(false);
 
   const createUser = async e => {
@@ -28,7 +39,16 @@ export default function CreateUser () {
       email: email.current.value,
       password: password.current.value,
       confirmPassword: confirmPassword.current.value,
-      createdTime: getTodayToString
+      createdTime: getTodayToString,
+      country: country.current.value,
+      roles: 'Member',
+      profileImgURL: profileImgURL.current.value,
+      myPosts: null,
+      lastTimeOnline: '',
+      profileViews: 0,
+      aboutMeText: aboutMeText.current.value,
+      banTime: ''
+
     }
     const res = await addUser(user);
     if (!res) {
@@ -54,11 +74,17 @@ export default function CreateUser () {
 
               <div className="inner-grid"><input required ref={lastName} key="3" placeholder="Last name" /></div>
 
-              <div className="inner-grid"><input required ref={email} key="4" placeholder="email" /></div>
+              <div className="inner-grid"><input required ref={email} key="4" placeholder="Email" /></div>
 
-              <div className="inner-grid"><input required ref={password} key="5" placeholder="password" /></div>
+              <div className="inner-grid"><input required ref={country} key="5" placeholder="Country" /></div>
 
-              <div className="inner-grid"><input required ref={confirmPassword} key="6" placeholder="confirm password" /></div>
+              <div className="inner-grid"><input ref={aboutMeText} key="5" placeholder="About me..." /></div>
+
+              <div className="inner-grid"><input ref={profileImgURL} key="5" placeholder="Link to Image" /></div>
+
+              <div className="inner-grid"><input required ref={password} key="5" placeholder="Password" /></div>
+
+              <div className="inner-grid"><input required ref={confirmPassword} key="6" placeholder="Confirm Password" /></div>
 
               <div className="inner-grid-btn">
                 {alreadyAUser && <p className="alreadyAUser">⚠️ Their is already a user with this email address..</p>}
@@ -73,5 +99,17 @@ export default function CreateUser () {
         </div>
       </div>
     );
-  
+  //   email: { type: String, required: true },
+  // firstName: { type: String, required: true },
+  // lastName: { type: String, required: true },
+  // password: { type: String, required: true },
+  // createdTime: { type: String },
+  // country: { type: String, required: true },
+  // roles: { type: String, required: true },
+  // profileImgURL: { type: String },
+  // myPosts: { type: Array },
+  // lastTimeOnline: { type: String },
+  // profileViews: { type: Number },
+  // aboutMeText: { type: String },
+  // banTime: { type: Number },
 }

@@ -91,6 +91,13 @@ export default function CustomizedMenus() {
         keepMounted
         open={Boolean(anchorEl)}
         onClick={handleClose}>
+        
+        <StyledMenuItem onClick={() => history.push('/profile')}>
+          <ListItemIcon>
+            <HomeWorkRoundedIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="My Profile" />
+        </StyledMenuItem>
 
         <StyledMenuItem onClick={() => onLogOut()}>
           <ListItemIcon>

@@ -5,6 +5,8 @@ import Login from './pages/Login'
 import Register from './pages/Register';
 import Home from './pages/Home';
 import Nav from './components/Nav.js';
+import MyPage from './pages/MyPage';
+
 function App() {
     
 
@@ -16,7 +18,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} /> 
           <Route path="/register" exact component={Register} />
-          <Route path="/login" exact component={Login} /> 
+          <Route path="/login" exact component={Login} />
+          <Route path="/profile" exact component={MyPage} />
           </Switch>
          
        </div>

@@ -117,4 +117,9 @@ app.get('/api/login', (req, res) => {
 });
 
 
+// _________________ POSTS _________________
+
+
+
+
 app.listen(3002, () => console.log("server started on port 3002"));

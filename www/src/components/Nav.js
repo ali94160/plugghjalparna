@@ -24,7 +24,8 @@ const Nav = () => {
      <Link to="/"><img className="logoImg" src="https://i.postimg.cc/rmW3W2gM/New-Project-6.png" alt=""/></Link>
       <div className="links">
       <Link to="/">HOME</Link>
-      <Link to="/about">ABOUT</Link>
+        <Link to="/about">ABOUT</Link>
+        <Link to="/profile">Profile</Link>"
       {!whoAmI && <Link to="/login">LOGIN</Link>}
       {!whoAmI && <Link to="/register">REGISTER</Link>} 
       </div>
