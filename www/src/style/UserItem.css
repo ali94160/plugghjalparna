@@ -32,7 +32,12 @@
   border-radius: 50%;
 }
 
-.userItemDiv .profileCard .infoCard span {
+.userItemDiv .profileCard span {
+  position: relative;
+  top: -3px;
+}
+
+.userItemDiv .profileCard span {
   position: relative;
   top: -3px;
 }
