@@ -1,9 +1,27 @@
 .userItemDiv {
   display: grid;
-  grid-template-columns: 1fr 40% 40% 1fr;
-  grid-template-rows: auto;
 }
 
-.userItemDiv .profileCard{
-  background-color: red;
+.userItemDiv .profileCard {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 10px;
+  
+  border-color: lightblue;
+  border-style: solid;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: rgba(173, 216, 230, 0.459);
+}
+
+.userItemDiv .imageCard {
+  text-align: center;
+  
+}
+.userItemDiv .infoCard{
+  text-align: left;
+}
+
+.userItemDiv .defaultIMG {
+  width: 60%;
 }
