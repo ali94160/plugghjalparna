@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 50% 50%;
   padding: 10px;
-  
+
   border-color: lightblue;
   border-style: solid;
   border-radius: 5px;
@@ -16,12 +16,22 @@
 
 .userItemDiv .imageCard {
   text-align: center;
-  
 }
-.userItemDiv .infoCard{
+.userItemDiv .infoCard {
   text-align: left;
 }
 
 .userItemDiv .defaultIMG {
   width: 60%;
+  background-color: rgb(15, 148, 15);
+  border-radius: 50%;
+}
+
+.userItemDiv .profileCard .infoCard span {
+  position: relative;
+  top: -3px;
+}
+
+.userItemDiv .root {
+  background-color: green;
 }

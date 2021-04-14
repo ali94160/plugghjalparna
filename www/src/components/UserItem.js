@@ -1,9 +1,12 @@
 import React from 'react';
 import '../style/UserItem.css'
+import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import RestoreRoundedIcon from '@material-ui/icons/RestoreRounded';
 
 const UserItem = ({ user }) => {
 
-  const defaultIMG = "https://lh3.googleusercontent.com/proxy/y2rXhAQHDj7labWbTqIGqSoqko_grkSFbWmdkFDjl4DX98SY52idJDC4NPE5zOqxDjfCMlMmdpvBajce-VptEXGtph7UoHy3IVbre1Lr3kFlHGFfrCW7Hyyq"
+  const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
 
 
 
@@ -13,13 +16,15 @@ const UserItem = ({ user }) => {
       <div className="profileCard">
         <div className="imageCard">
           {user.profileImgURL ? <img src={user.profileImgURL} alt="" /> : <img  className="defaultIMG" src={defaultIMG} alt="" />}
-          <p>role: {user.roles} </p>
+          <p>{user.roles} </p>
         </div>
         <div className="infoCard">
-          <p>{user.firstName}</p><span>{user.lastName}</span>
-          <p>{user.age}</p>
-          {user.lastTimeOnline ? <p>LOL{user.lastTimeOnline}</p> : <p>Online</p>}
-          <p>{user.country}</p>
+          <p><PersonRoundedIcon fontSize="small"/> <span> {user.firstName} {user.lastName}</span></p>
+          <p><RestoreRoundedIcon fontSize="small" />{user.lastTimeOnline ? <p>{user.lastTimeOnline} </p> : <span> never</span>}</p>
+          <p><LocationOnIcon fontSize="small" />{user.country}</p>
+        </div>
+        <div className="iconCard">
+          
         </div>
         
        
