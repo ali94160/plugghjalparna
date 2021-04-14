@@ -27,6 +27,11 @@
   border-radius: 50%;
 }
 
+.userItemDiv .profileIMG {
+  max-width: 60%;
+  border-radius: 50%;
+}
+
 .userItemDiv .profileCard .infoCard span {
   position: relative;
   top: -3px;
