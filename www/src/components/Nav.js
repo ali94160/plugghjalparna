@@ -25,7 +25,7 @@ const Nav = () => {
       <div className="links">
       <Link to="/">HOME</Link>
         <Link to="/about">ABOUT</Link>
-        <Link to="/profile">Profile</Link>"
+        <Link to="/users">USERS</Link>
       {!whoAmI && <Link to="/login">LOGIN</Link>}
       {!whoAmI && <Link to="/register">REGISTER</Link>} 
       </div>

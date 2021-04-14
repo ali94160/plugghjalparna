@@ -15,6 +15,7 @@ export const UserProvider = (props) => {
     data = await data.json();
     console.log(data , "här");
     setUsers([...data]);
+    return data;
   }
 
   useEffect(() => {
