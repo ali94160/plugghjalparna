@@ -1,5 +1,5 @@
 import React from 'react'
-import UserProfile from './UserProfile';
+import UserProfile from './UserItem';
 import '../style/UserList.css';
 
 const UserList = ({users}) => {

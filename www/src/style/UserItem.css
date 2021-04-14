@@ -1,0 +1,9 @@
+.userItemDiv {
+  display: grid;
+  grid-template-columns: 1fr 40% 40% 1fr;
+  grid-template-rows: auto;
+}
+
+.userItemDiv .profileCard{
+  background-color: red;
+}
