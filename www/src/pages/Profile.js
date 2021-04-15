@@ -32,13 +32,21 @@ const Profile = () => {
   return (
     <div className="profileDiv">
       {user && <div className="checkWrapper">
-        <h4>Profile Page</h4>
         <div className="imgDiv">
           <img className="profileIMG" src={user.profileImgURL} alt="" />
           {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
         </div>
         <div className="profileInfo">
- <p>{user.email}</p>
+          <p><span>Namn </span>{user.firstName}</p>
+          <p><span>Efternamn </span>{user.lastName}</p>
+          <p><span>Ålder </span>{user.age}</p>
+          <p><span>kontakt </span>{user.email}</p>
+          <p><span>Om mig </span>{user.aboutMeText}</p>
+        </div>
+        <div className="profileInfo2">
+          <p><span>Medlem sedan </span>{user.createdTime}</p>
+          <p><span>Senast inloggad </span>{user.lastTimeOnline}</p>
+          <p><span>Antal besökare </span>{user.profileViews}</p>
         </div>
        
       </div>}

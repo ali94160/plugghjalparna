@@ -1,19 +1,23 @@
+.profileDiv .checkWrapper {
+  display: grid;
+  grid-template-columns: 25% 33% 33%;
+  grid-template-rows: auto;
+  padding: 10px;
+  grid-gap: 10px;
+  border-bottom: 2px solid lightblue;
+  margin-top: 15vh;
+}
+
 .profileDiv {
   display: grid;
-  grid-template-columns: 50% 50%;
-  padding: 10px;
-
-  border-color: lightblue;
-  border-style: solid;
-  border-radius: 5px;
-  margin-top: 10vh;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .profileDiv .imgDiv p {
-  padding-left: 60px;
+  padding-left: 70px;
   font-size: 17px;
 }
-
 
 .profileDiv .profileIMG {
   width: 30vh;
@@ -21,8 +25,20 @@
 }
 
 .profileDiv .profileInfo {
-  display: grid;
-  grid-template-columns: 1fr 50%;
+  font-size: 18px;
+}
+.profileDiv .profileInfo2 {
+  font-size: 18px;
+}
+
+.profileDiv .profileInfo2 p span {
+  color: grey;
+  font-weight: 300;
+}
+
+.profileDiv .profileInfo p span {
+  color: grey;
+  font-weight: 300;
 }
 
 .profileDiv .imgDiv {
