@@ -1,3 +1,12 @@
 .profileDiv {
   margin-top: 15vh;
 }
+.profileDiv .profileIMG {
+  width: 30vh;
+  border-radius: 50%;
+}
+
+.profileDiv .imgDiv {
+  display: inline-block;
+  
+}

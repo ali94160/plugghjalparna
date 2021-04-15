@@ -11,6 +11,9 @@ const Profile = () => {
   const user = users.find(r => r._id === id);
 
 
+  const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
+
+
 
   useEffect(() => {
     if (user) {
@@ -25,8 +28,13 @@ const Profile = () => {
 
   return (
     <div className="profileDiv">
-      <h4>Profile Page</h4>
-      <p>{user && user.email}</p>
+      {user && <div className="checkWrapper">
+        <h4>Profile Page</h4>
+        <div className="imgDiv">
+          <img className="profileIMG" src={user.profileImgURL} alt="" />
+        </div>
+        <p>{user.email}</p>
+      </div>}
     </div>
 
 
