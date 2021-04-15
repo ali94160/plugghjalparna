@@ -26,7 +26,7 @@ const UserItem = ({ user }) => {
           {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
         </div>
         <div className="infoCard">
-          <p onClick={goToProfilePage}><PersonRoundedIcon fontSize="small"/> <span> {user.firstName} {user.lastName}</span></p>
+          <p onClick={goToProfilePage}><PersonRoundedIcon fontSize="small"/> <span className="nameSpan"> {user.firstName} {user.lastName}</span></p>
           <p><RestoreRoundedIcon fontSize="small" />{user.lastTimeOnline ? <p>{user.lastTimeOnline}</p> : <span style={{color: 'grey'}}>  Never</span>}</p>
           <p><LocationOnIcon fontSize="small" />{user.country}</p>
           <p><SettingsRoundedIcon style={{cursor: 'pointer'}} fontSize="small"/> <span className="clickableIcon">Hantera</span></p>

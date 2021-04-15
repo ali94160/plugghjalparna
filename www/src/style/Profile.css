@@ -32,15 +32,36 @@
 }
 
 .profileDiv .profileInfo2 p span {
-  color: grey;
+  color: #838383;
   font-weight: 300;
+  margin: 0;
+  font-size: 15px;
 }
 
 .profileDiv .profileInfo p span {
+  color: #838383;
+  font-weight: 300;
+  margin: 0;
+  font-size: 15px;
+}
+
+.profileDiv .profileInfo .nameSpan {
   color: grey;
   font-weight: 300;
+  font-size: 30px;
+  margin: 0;
 }
 
 .profileDiv .imgDiv {
   display: inline-block;
+}
+
+.profileDiv .profileInfo p:last-child {
+  margin: 0;
+  font-size: 25px;
+}
+
+.profileDiv .profileInfo2 p:last-child {
+  margin: 0;
+  font-size: 25px;
 }

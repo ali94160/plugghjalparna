@@ -42,6 +42,18 @@
   top: -3px;
 }
 
+.userItemDiv .profileCard .nameSpan:hover {
+  position: relative;
+  top: -3px;
+  cursor: pointer;
+  border-bottom: 1px solid lightskyblue;
+}
+
+.userItemDiv .profileCard .nameSpan {
+  font-weight: bold;
+  color: rgb(32, 100, 226);
+}
+
 .userItemDiv .profileCard .infoCard .clickableIcon:hover {
   cursor: pointer;
   border-bottom: 1px solid black;

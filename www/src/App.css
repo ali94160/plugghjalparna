@@ -1,8 +1,10 @@
+.appWrapper {
+  padding-bottom: 5vh;
+}
 .App {
-  margin: 0;
   height: 10vh;
   font-family: "Montserrat", sans-serif;
-  
+  margin: 0;
 }
 
 body {

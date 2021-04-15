@@ -37,16 +37,17 @@ const Profile = () => {
           {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
         </div>
         <div className="profileInfo">
-          <p><span>Namn </span>{user.firstName}</p>
-          <p><span>Efternamn </span>{user.lastName}</p>
-          <p><span>Ålder </span>{user.age}</p>
-          <p><span>kontakt </span>{user.email}</p>
-          <p><span>Om mig </span>{user.aboutMeText}</p>
+          <p><span>Namn </span><p>{user.firstName}</p></p>
+          <p><span>Efternamn </span><p>{user.lastName}</p></p>
+          <p><span>Ålder </span><p>{user.age}</p></p>
+          <p><span>kontakt </span><p>{user.email}</p></p>
+          <p><span>Om mig </span><p>{user.aboutMeText}</p></p>
+          <p></p>
         </div>
         <div className="profileInfo2">
-          <p><span>Medlem sedan </span>{user.createdTime}</p>
-          <p><span>Senast inloggad </span>{user.lastTimeOnline}</p>
-          <p><span>Antal besökare </span>{user.profileViews}</p>
+          <p><span>Medlem sedan </span><p>{user.createdTime}</p></p>
+          <p><span>Senast inloggad </span><p>{user.lastTimeOnline}</p></p>
+          <p><span>Antal besökare </span><p>{user.profileViews}</p></p>
         </div>
        
       </div>}

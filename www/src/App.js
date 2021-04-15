@@ -13,8 +13,9 @@ function App() {
 
   return (
 <Router>
-      
       <div className="App">
+
+        <div className="appWrapper">
         <Nav/>
         <Switch>
           <Route path="/users/:id" exact component={Profile} /> 
@@ -23,8 +24,9 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
           </Switch>
-         
-       </div>
+         </div>
+        </div>
+        
 </Router>
    
     
