@@ -17,7 +17,7 @@ const UserItem = ({ user }) => {
       <div className="profileCard">
         <div className="imageCard">
           {user.profileImgURL ? <img className="profileIMG" src={user.profileImgURL} alt="" /> : <img  className="defaultIMG" src={defaultIMG} alt="" />}
-          {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/>{user.roles} </p> : <span><SecurityRoundedIcon color="error" fontSize="small"/>{user.roles}</span>}
+          {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
         </div>
         <div className="infoCard">
           <p><PersonRoundedIcon fontSize="small"/> <span> {user.firstName} {user.lastName}</span></p>
