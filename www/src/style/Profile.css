@@ -1,12 +1,30 @@
 .profileDiv {
-  margin-top: 15vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 10px;
+
+  border-color: lightblue;
+  border-style: solid;
+  border-radius: 5px;
+  margin-top: 10vh;
 }
+
+.profileDiv .imgDiv p {
+  padding-left: 60px;
+  font-size: 17px;
+}
+
+
 .profileDiv .profileIMG {
   width: 30vh;
   border-radius: 50%;
 }
 
+.profileDiv .profileInfo {
+  display: grid;
+  grid-template-columns: 1fr 50%;
+}
+
 .profileDiv .imgDiv {
   display: inline-block;
-  
 }

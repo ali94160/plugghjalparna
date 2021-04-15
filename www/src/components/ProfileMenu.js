@@ -77,7 +77,7 @@ export default function CustomizedMenus() {
         onClick={handleClick}>
         
         
-        <span className="welcomeMsg" >{whoAmI && whoAmI.firstName}</span> 
+        <span className="welcomeMsg" >{whoAmI && whoAmI.firstName} ●</span> 
         <AccountCircleIcon
           color='primary'
           fontSize="large" />

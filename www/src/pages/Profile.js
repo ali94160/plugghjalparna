@@ -2,6 +2,9 @@ import React, {useContext, useEffect, useState, useRef} from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContextProvider'
 import '../style/Profile.css'
+import VerifiedUserRoundedIcon from '@material-ui/icons/VerifiedUserRounded';
+import SecurityRoundedIcon from '@material-ui/icons/SecurityRounded';
+import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 
 const Profile = () => {
 
@@ -32,8 +35,12 @@ const Profile = () => {
         <h4>Profile Page</h4>
         <div className="imgDiv">
           <img className="profileIMG" src={user.profileImgURL} alt="" />
+          {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
         </div>
-        <p>{user.email}</p>
+        <div className="profileInfo">
+ <p>{user.email}</p>
+        </div>
+       
       </div>}
     </div>
 
