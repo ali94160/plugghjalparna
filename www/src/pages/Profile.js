@@ -9,7 +9,7 @@ import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 const Profile = () => {
 
   const { id } = useParams();
-  const { users, fetchUsers } = useContext(UserContext);
+  const { users, fetchUsers,updateUser } = useContext(UserContext);
   const [AllUsers, setAllUsers] = useState(null);
   const user = users.find(r => r._id === id);
 
@@ -22,11 +22,17 @@ const Profile = () => {
     if (user) {
       fetchUsers()
     }
-    
-    
-    console.log(user);
-    console.log(user);
   }, []);
+
+  useEffect(() => {
+    if (id) {
+      const viewedObj = {
+        profileViews: 1
+      }
+      updateUser(id, viewedObj)
+      console.log(id, viewedObj , 'hart');
+    }
+  },[]);
   
 
   return (
@@ -42,7 +48,7 @@ const Profile = () => {
           <p><span>Ålder </span><p>{user.age}</p></p>
           <p><span>kontakt </span><p>{user.email}</p></p>
           <p><span>Om mig </span><p>{user.aboutMeText}</p></p>
-          <p></p>
+          <p> </p>
         </div>
         <div className="profileInfo2">
           <p><span>Medlem sedan </span><p>{user.createdTime}</p></p>

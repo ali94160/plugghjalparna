@@ -18,6 +18,7 @@ global.mongoose.connect(atlasURL, {
 });
 
 const models = require('./models.js');
+const { users } = require("./models.js");
 const secret = 'S0m3#p30p13_l1k35-c1l4n7r0,_50m3.d0N7';
 
 app.use(session({
@@ -114,6 +115,24 @@ app.get('/api/login', (req, res) => {
   else {
     res.json('');
   }
+});
+
+
+// Update users page views.
+app.put('/rest/users/:id', async (req, res) => {
+  let model = models['users']
+  let user = await model.findById(req.params.id)
+  if (req.body.profileViews) {
+    if (user.profileViews === null) {
+      users.profileViews = req.body.profileViews;
+    } else {
+      user.profileViews = user.profileViews + 1;
+    }
+    delete req.body.profileViews;
+  }
+  Object.assign(user, req.body)
+  await user.save()
+  res.json(user)
 });
 
 

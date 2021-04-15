@@ -85,6 +85,17 @@ export const UserProvider = (props) => {
     }
   }
 
+  const updateUser = async (id, userObj) => {
+     let res = await fetch('/rest/users/' + id, {
+      method: 'PUT',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(userObj)
+     })
+
+    res = await res.json()
+    fetchUsers();
+  }
+
  
 
    const values = {
@@ -95,7 +106,8 @@ export const UserProvider = (props) => {
     whoIsOnline,
     whoAmI,
     logOut,
-    fetchUsers
+    fetchUsers,
+    updateUser
   }
   
   return (
