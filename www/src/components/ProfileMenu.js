@@ -92,7 +92,7 @@ export default function CustomizedMenus() {
         open={Boolean(anchorEl)}
         onClick={handleClose}>
         
-        <StyledMenuItem onClick={() => history.push('/users')}>
+        <StyledMenuItem onClick={() => history.push('/users/' + whoAmI._id)}>
           <ListItemIcon>
             <HomeWorkRoundedIcon fontSize="small" />
           </ListItemIcon>

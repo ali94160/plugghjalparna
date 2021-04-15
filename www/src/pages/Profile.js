@@ -33,7 +33,7 @@ const Profile = () => {
     <div className="profileDiv">
       {user && <div className="checkWrapper">
         <div className="imgDiv">
-          <img className="profileIMG" src={user.profileImgURL} alt="" />
+          {user.profileImgURL ? <img className="profileIMG" src={user.profileImgURL} alt="" /> : <img className="profileIMG" src={defaultIMG} alt="" style={{width: '60%'} } />}
           {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
         </div>
         <div className="profileInfo">
