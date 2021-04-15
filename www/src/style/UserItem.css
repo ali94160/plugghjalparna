@@ -42,6 +42,7 @@
   top: -3px;
 }
 
-.userItemDiv .root {
-  background-color: green;
+.userItemDiv .profileCard .infoCard .clickableIcon:hover {
+  cursor: pointer;
+  border-bottom: 1px solid black;
 }

@@ -5,6 +5,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import RestoreRoundedIcon from '@material-ui/icons/RestoreRounded';
 import VerifiedUserRoundedIcon from '@material-ui/icons/VerifiedUserRounded';
 import SecurityRoundedIcon from '@material-ui/icons/SecurityRounded';
+import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 
 const UserItem = ({ user }) => {
 
@@ -21,8 +22,9 @@ const UserItem = ({ user }) => {
         </div>
         <div className="infoCard">
           <p><PersonRoundedIcon fontSize="small"/> <span> {user.firstName} {user.lastName}</span></p>
-          <p><RestoreRoundedIcon fontSize="small" />{user.lastTimeOnline ? <p>{user.lastTimeOnline}</p> : <span>  Never</span>}</p>
+          <p><RestoreRoundedIcon fontSize="small" />{user.lastTimeOnline ? <p>{user.lastTimeOnline}</p> : <span style={{color: 'grey'}}>  Never</span>}</p>
           <p><LocationOnIcon fontSize="small" />{user.country}</p>
+          <p><SettingsRoundedIcon style={{cursor: 'pointer'}} fontSize="small"/> <span className="clickableIcon">Hantera</span></p>
         </div>
         <div className="iconCard">
           
