@@ -9,7 +9,6 @@ const Users = () => {
 
   const { users, fetchUsers } = useContext(UserContext);
   const [AllUsers, setAllUsers] = useState(null);
-  
 
 
   useEffect(() => {

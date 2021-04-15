@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom'
 import '../style/UserItem.css'
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -10,6 +11,10 @@ import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 const UserItem = ({ user }) => {
 
   const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
+  const history = useHistory();
+  const goToProfilePage = () => {
+    history.push('/users/' + user._id);
+  }
 
 
   return (
@@ -21,7 +26,7 @@ const UserItem = ({ user }) => {
           {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
         </div>
         <div className="infoCard">
-          <p><PersonRoundedIcon fontSize="small"/> <span> {user.firstName} {user.lastName}</span></p>
+          <p onClick={goToProfilePage}><PersonRoundedIcon fontSize="small"/> <span> {user.firstName} {user.lastName}</span></p>
           <p><RestoreRoundedIcon fontSize="small" />{user.lastTimeOnline ? <p>{user.lastTimeOnline}</p> : <span style={{color: 'grey'}}>  Never</span>}</p>
           <p><LocationOnIcon fontSize="small" />{user.country}</p>
           <p><SettingsRoundedIcon style={{cursor: 'pointer'}} fontSize="small"/> <span className="clickableIcon">Hantera</span></p>
