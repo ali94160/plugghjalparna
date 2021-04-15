@@ -22,12 +22,13 @@
 }
 
 .userItemDiv .defaultIMG {
+  margin-top: 9%;
   width: 60%;
-  background-color: rgb(15, 148, 15);
   border-radius: 50%;
 }
 
 .userItemDiv .profileIMG {
+    margin-top: 9%;
   max-width: 60%;
   border-radius: 50%;
 }

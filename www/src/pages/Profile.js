@@ -48,7 +48,7 @@ const Profile = () => {
           <p><span>Ålder </span><p>{user.age}</p></p>
           <p><span>kontakt </span><p>{user.email}</p></p>
           <p><span>Om mig </span><p>{user.aboutMeText}</p></p>
-          <p> </p>
+         
         </div>
         <div className="profileInfo2">
           <p><span>Medlem sedan </span><p>{user.createdTime}</p></p>
