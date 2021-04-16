@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState, useRef} from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContextProvider'
 import '../style/Profile.css'
-import VerifiedUserRoundedIcon from '@material-ui/icons/VerifiedUserRounded';
+import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 import SecurityRoundedIcon from '@material-ui/icons/SecurityRounded';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 
@@ -54,14 +54,13 @@ const Profile = () => {
     <div className="profileDiv">
       {user && <div className="checkWrapper">
         <div className="imgDiv">
-          {user.profileImgURL ? <img className="profileIMG" src={user.profileImgURL} alt="" /> : <img className="profileIMG" src={defaultIMG} alt="" style={{width: '60%'} } />}
-          {user.roles === 'Member' ? <p><VerifiedUserRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
+          {user.profileImgURL ? <img className="profileIMG" src={user.profileImgURL} alt="" /> : <img className="defaultIMG" src={defaultIMG} alt="" style={{width: '60%'} } />}
+          {user.roles === 'Member' ? <p><CheckCircleRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
         </div>
         <div className="profileInfo">
           <p><span>Namn </span><p>{user.firstName}</p></p>
           <p><span>Efternamn </span><p>{user.lastName}</p></p>
           <p><span>Ålder </span><p>{user.age}</p></p>
-          <p><span>kontakt </span><p>{user.email}</p></p>
           <p><span>Om mig </span><p>{user.aboutMeText}</p></p>
          
         </div>

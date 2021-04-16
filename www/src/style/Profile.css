@@ -23,6 +23,10 @@
   width: 30vh;
   border-radius: 50%;
 }
+.profileDiv .defaultIMG {
+  min-width: 30vh;
+  border-radius: 50%;
+}
 
 .profileDiv .profileInfo {
   font-size: 18px;

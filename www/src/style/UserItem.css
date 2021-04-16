@@ -4,8 +4,9 @@
 
 .userItemDiv .profileCard {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 50% 70%;
   padding: 10px;
+  width: 100%;
 
   border-color: lightblue;
   border-style: solid;
@@ -19,6 +20,18 @@
 }
 .userItemDiv .infoCard {
   text-align: left;
+  width: fit-content;
+}
+
+.userItemDiv .infoCard p {
+  padding: 0;
+  margin: 0;
+}
+
+.userItemDiv .infoCard .timeP {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
 }
 
 .userItemDiv .defaultIMG {
@@ -28,7 +41,7 @@
 }
 
 .userItemDiv .profileIMG {
-    margin-top: 9%;
+  margin-top: 9%;
   max-width: 60%;
   border-radius: 50%;
 }
