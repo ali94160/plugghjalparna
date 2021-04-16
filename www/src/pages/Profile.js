@@ -11,55 +11,36 @@ const Profile = () => {
   const { id } = useParams();
   const { users, fetchUsers,updateUser } = useContext(UserContext);
   const [AllUsers, setAllUsers] = useState(null);
-  const [theDate, setTheDate] = useState('never');
-  const [theTime, setTheTime] = useState('never');
-
   const user = users.find(r => r._id === id);
-
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState(null);
 
   const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
 
+  
+       
 
-  const convertDate = async () => {
-   
-      if (user.lastTimeOnline === null) {
-         setTheDate('never');
-          setTheTime('never');
-      } else {
-    let dateString = user.lastTimeOnline;
-    const [date, time] = dateString.split(' ');
-    setTheDate(date);
-    setTheTime(time);
-      }
-
-    
-   
-    
-  }
+  useEffect(() => {
+    if (user && user.lastTimeOnline !== null){
+      const [date, time] = user.lastTimeOnline.split(' ');
+      setDate(date);
+        setTime(time);
+    } if (user && user.lastTimeOnline === null) {
+       setDate('never')
+       setTime('never')
+    }
+  });
 
 
   useEffect(() => {
-
-    fetchUsers().then(u => {
-      if (user) {
-           if (id) {
-        if (id === user._id) {
-          convertDate();
-        }
-      }
-   
-
-      }
-        
+    if (user) {
+      fetchUsers()
       
-      })
-      
-    
-    
+    }
   }, []);
 
+
   useEffect(() => {
-    
     if (id) {
       const viewedObj = {
         profileViews: 1
@@ -86,8 +67,8 @@ const Profile = () => {
         </div>
         <div className="profileInfo2">
           <p><span>Medlem sedan </span><p>{user.createdTime}</p></p>
-          <p><span>Senast inloggad</span><p>{theDate}</p></p>
-          <p><span>Senast inloggad</span><p>{theTime}</p></p>
+          <p><span>Senast inloggad</span><p>{date}</p></p>
+          <p><span>Klockan</span><p>{time}</p></p>
           <p><span>Antal besökare </span><p>{user.profileViews}</p></p>
         </div>
        

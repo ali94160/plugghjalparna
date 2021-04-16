@@ -1,6 +1,6 @@
 .profileDiv .checkWrapper {
   display: grid;
-  grid-template-columns: 25% 33% 33%;
+  grid-template-columns: 35% 30% 30%;
   grid-template-rows: auto;
   padding: 10px;
   grid-gap: 10px;
@@ -37,6 +37,11 @@
   font-weight: 300;
   margin: 0;
   font-size: 15px;
+}
+
+.profileDiv .profileInfo2 .theTime {
+  color: black;
+  font-weight: bold;
 }
 
 .profileDiv .profileInfo p span {
