@@ -16,15 +16,8 @@ export default function CreateUser () {
   const password = useRef();
   const confirmPassword = useRef();
   const country = useRef('');
-  const roles = useRef('Member'); // vid POST
   const profileImgURL = useRef('');
-  const myPosts = useRef([]); // vid POST
-  const lastTimeOnline = useRef(''); // vid POST
-  const profileViews = useRef(); // vid POST
   const aboutMeText = useRef(''); 
-  const banTime = useRef(); // VID POST
-
-
 
   const [alreadyAUser, setAlreadyAUser] = useState(false);
 
@@ -32,8 +25,8 @@ export default function CreateUser () {
     e.preventDefault();
     
     const dateToday = new Date();
-    const getTodayToString = dateToday.toString().substring(0, 15);
-    
+    const getRegDate = dateToday.toLocaleString().substring(0, 10);
+
     const user = {
       firstName: firstName.current.value,
       lastName: lastName.current.value,
@@ -41,7 +34,7 @@ export default function CreateUser () {
       email: email.current.value,
       password: password.current.value,
       confirmPassword: confirmPassword.current.value,
-      createdTime: getTodayToString,
+      createdTime: getRegDate,
       country: country.current.value,
       roles: 'Member',
       profileImgURL: profileImgURL.current.value,
@@ -103,17 +96,4 @@ export default function CreateUser () {
         </div>
       </div>
     );
-  //   email: { type: String, required: true },
-  // firstName: { type: String, required: true },
-  // lastName: { type: String, required: true },
-  // password: { type: String, required: true },
-  // createdTime: { type: String },
-  // country: { type: String, required: true },
-  // roles: { type: String, required: true },
-  // profileImgURL: { type: String },
-  // myPosts: { type: Array },
-  // lastTimeOnline: { type: String },
-  // profileViews: { type: Number },
-  // aboutMeText: { type: String },
-  // banTime: { type: Number },
 }
