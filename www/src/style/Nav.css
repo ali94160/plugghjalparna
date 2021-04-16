@@ -1,7 +1,7 @@
 .nav-bar {
   z-index: 120 !important;
   display: grid;
-  grid-template-columns: 15% 75% 10%;
+  grid-template-columns: 15% 75% 20%;
   height: 10vh;
   min-height: 50px;
   background: rgb(255, 255, 255);
@@ -13,6 +13,7 @@
   user-select: none;
   z-index: 999;
 }
+
 /* Removes background color on click. */
 .nav-bar *:focus {
   -webkit-tap-highlight-color: transparent;
@@ -63,7 +64,7 @@
 
 .links {
   display: flex;
-  margin-top: 8px;
+  margin-top: 5px;
   align-items: center;
   justify-content: space-evenly;
 }
@@ -76,12 +77,3 @@
   letter-spacing: 2.2px;
   padding-bottom: 5px;
 }
-.profileMenu {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 20px;
-  padding-top: 20px;
-}
-
-
