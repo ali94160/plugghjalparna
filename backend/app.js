@@ -124,12 +124,18 @@ app.put('/rest/users/:id', async (req, res) => {
   let user = await model.findById(req.params.id)
   if (req.body.profileViews) {
     if (user.profileViews === null) {
-      users.profileViews = req.body.profileViews;
+      user.profileViews = req.body.profileViews;
     } else {
       user.profileViews = user.profileViews + 1;
     }
     delete req.body.profileViews;
   }
+
+  if (req.body.lastTimeOnline) {
+  user.lastTimeOnline = req.body.lastTimeOnline; 
+  delete req.body.lastTimeOnline;
+  }
+
   Object.assign(user, req.body)
   await user.save()
   res.json(user)

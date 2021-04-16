@@ -11,26 +11,60 @@ const Profile = () => {
   const { id } = useParams();
   const { users, fetchUsers,updateUser } = useContext(UserContext);
   const [AllUsers, setAllUsers] = useState(null);
+  const [theDate, setTheDate] = useState('never');
+  const [theTime, setTheTime] = useState('never');
+
   const user = users.find(r => r._id === id);
 
 
   const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
 
 
+  const convertDate = async () => {
+   
+      if (user.lastTimeOnline === null) {
+         setTheDate('never');
+          setTheTime('never');
+      } else {
+    let dateString = user.lastTimeOnline;
+    const [date, time] = dateString.split(' ');
+    setTheDate(date);
+    setTheTime(time);
+      }
+
+    
+   
+    
+  }
+
 
   useEffect(() => {
-    if (user) {
-      fetchUsers()
-    }
+
+    fetchUsers().then(u => {
+      if (user) {
+           if (id) {
+        if (id === user._id) {
+          convertDate();
+        }
+      }
+   
+
+      }
+        
+      
+      })
+      
+    
+    
   }, []);
 
   useEffect(() => {
+    
     if (id) {
       const viewedObj = {
         profileViews: 1
       }
       updateUser(id, viewedObj)
-      console.log(id, viewedObj , 'hart');
     }
   },[]);
   
@@ -52,7 +86,8 @@ const Profile = () => {
         </div>
         <div className="profileInfo2">
           <p><span>Medlem sedan </span><p>{user.createdTime}</p></p>
-          <p><span>Senast inloggad </span><p>{user.lastTimeOnline}</p></p>
+          <p><span>Senast inloggad</span><p>{theDate}</p></p>
+          <p><span>Senast inloggad</span><p>{theTime}</p></p>
           <p><span>Antal besökare </span><p>{user.profileViews}</p></p>
         </div>
        

@@ -47,9 +47,12 @@ const StyledMenuItem = withStyles((theme) => ({
 
 
 export default function CustomizedMenus() {
-   const { whoAmI, logOut, whoIsOnline } = useContext(UserContext);
+  
+  const { whoAmI, logOut, whoIsOnline, updateUser} = useContext(UserContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const history = useHistory();
+  const dateToday = new Date();
+  const getOnlineDate = dateToday.toLocaleString().substring(0, 16);
 
   useEffect(() => {
     whoIsOnline();
@@ -64,7 +67,11 @@ export default function CustomizedMenus() {
     setAnchorEl(null);
   };
 
-  const onLogOut = () => {
+  const onLogOut = async () => {
+      const dateObj = {
+        lastTimeOnline: getOnlineDate
+      }
+    await updateUser(whoAmI._id, dateObj)
     logOut();
     history.push('/');
   }
