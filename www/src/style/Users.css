@@ -1,10 +1,13 @@
-.users h4 {
-  margin: 120px auto;
-  text-align: center;
+.users {
+  margin: 100px auto;
+}
+.users .titleDiv {
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
 
-.users .titleDiv {
-  margin-top: 100px;
+.users .divtest {
+  border-bottom: 1px solid lightblue;
 }
 
 .users .titleDiv p {
@@ -13,4 +16,19 @@
   padding-bottom: 10px;
   letter-spacing: 1.5px;
   border-bottom: 2px solid lightblue;
+}
+
+.users input {
+  outline: none;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 3px;
+  border: 1px solid grey;
+  padding: 3px;
+}
+
+.users .clearBtn {
+  position: relative;
+  top: 3.5px;
+  right: 25px;
 }

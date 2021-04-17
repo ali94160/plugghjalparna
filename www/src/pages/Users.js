@@ -4,6 +4,7 @@ import UserList from '../components/UserList';
 import '../style/Users.css'
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import BackspaceIcon from '@material-ui/icons/Backspace';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,10 +52,11 @@ const Users = () => {
   
   return (
     <div className="users">
+      <div className="divtest">
       <div  className="titleDiv">
-        <input onChange={search} ref={textInput} type="text" placeholder="Sök användare" /><button onClick={clearInput}>Rensa</button> {/* rensa on click*/}
+        <input onChange={search} ref={textInput} type="text" placeholder="Sök användare" /><BackspaceIcon className="clearBtn" fontSize="small" onClick={clearInput}/>
         </div>
-
+          </div>
         {!allUsers && <div className={classes.root}>
           <CircularProgress style={{ margin: '0 auto' }} />
         </div>}
