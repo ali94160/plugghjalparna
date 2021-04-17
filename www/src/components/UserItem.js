@@ -27,7 +27,7 @@ const UserItem = ({ user }) => {
         </div>
         <div className="infoCard">
           <p onClick={goToProfilePage}><PersonRoundedIcon fontSize="small"/> <span className="nameSpan"> {user.firstName} {user.lastName}</span></p>
-          <p className="timeP"><RestoreRoundedIcon fontSize="small" />{user.lastTimeOnline ? <p>{user.lastTimeOnline.substring(0,10)}</p> : <span style={{color: 'grey'}}>  Never</span>}</p>
+          <p><RestoreRoundedIcon fontSize="small" />{user.lastTimeOnline ? <p className="timeP">{user.lastTimeOnline.substring(0,10)}</p> : <span style={{color: 'grey'}}>  Never</span>}</p>
           <p><LocationOnIcon fontSize="small" />{user.country}</p>
           <p><SettingsRoundedIcon style={{cursor: 'pointer'}} fontSize="small"/> <span className="clickableIcon">Hantera</span></p>
         </div>

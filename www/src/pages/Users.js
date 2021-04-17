@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { UserContext } from '../contexts/UserContextProvider';
 import UserList from '../components/UserList';
 import '../style/Users.css'
@@ -17,25 +17,45 @@ const useStyles = makeStyles((theme) => ({
 const Users = () => {
 
   const { users, fetchUsers } = useContext(UserContext);
-  const [AllUsers, setAllUsers] = useState(null);
+  const [allUsers, setAllUsers] = useState(null);
+  const [filteredList, setFilteredList] = useState(null);
   const classes = useStyles();
 
+  const search = async (e) => {
+    let input = await e.target.value;
+   
+    input.toLowerCase();
+
+    if (e.target.value) {
+      const filtered = allUsers.filter(u => u.firstName.toLowerCase().includes(input.toLowerCase()))
+      console.log(filtered);
+      console.log(e.target.value);
+      setAllUsers([...filtered])
+    }  else {
+      setAllUsers([...users])
+      return;
+      }
+    }
+
+ 
   useEffect(() => {
     fetchUsers().then(u => {
-        setAllUsers([...u])
+      setAllUsers([...u])
       })
   },[]);
   
   
   return (
     <div className="users">
-      <div>
-        <h4>User List</h4>
-        {!AllUsers && <div className={classes.root}>
+      <div  className="titleDiv">
+        <input onChange={search} type="text" placeholder="Sök användare" /><button>Rensa</button> {/* rensa on click*/}
+        </div>
+
+        {!allUsers && <div className={classes.root}>
           <CircularProgress style={{ margin: '0 auto' }} />
         </div>}
-        </div>
-      {AllUsers && <UserList users={AllUsers} />}
+       
+      {allUsers && <UserList users={allUsers} />}
     </div>
 
 
