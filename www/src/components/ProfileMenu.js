@@ -112,6 +112,7 @@ export default function CustomizedMenus() {
           </ListItemIcon>
           <ListItemText primary="Log out" />
         </StyledMenuItem>
+
       </StyledMenu>
     </div>
   );
