@@ -12,8 +12,8 @@ const Nav = () => {
 
   useEffect(() => {
     whoIsOnline();
-
   }, [])
+
   
 
 

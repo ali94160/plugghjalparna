@@ -140,6 +140,11 @@ app.put('/rest/users/:id', async (req, res) => {
   delete req.body.lastTimeOnline;
   }
 
+  if (req.body.roles) {
+    user.roles = req.body.roles;
+    delete req.body.roles;
+  }
+
   Object.assign(user, req.body)
   await user.save()
   res.json(user)

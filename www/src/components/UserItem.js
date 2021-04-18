@@ -18,25 +18,42 @@ const UserItem = ({ user }) => {
 
   const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
   const history = useHistory();
-  const { whoAmI } = useContext(UserContext);
+  const { whoAmI, updateUser } = useContext(UserContext);
   const [open, setOpen] = useState(false);
-  const [optionValue, setOptionValue] = useState(false);
+  const [banValue, setBanValue] = useState(null);
+  const [roleValue, setRoleValue] = useState(null);
+  const [updateMsg, setUpdateMsg] = useState(null);
   const goToProfilePage = () => {
     history.push('/users/' + user._id);
   }
 
+
   const changeOptionHandler = (e) => {
-    setOptionValue(e.target.value);
+    setBanValue(e.target.value);
+    console.log(user._id);
+  }
+
+  const changeOptionHandler2 =async (e) => {
+  
+    setUpdateMsg(true);
+    const roleObj = {
+      roles: e.target.value
+    }
+    updateUser(user._id, roleObj);
+    
   }
 
     const handleOpen = () => {
       setOpen(true);
-      setOptionValue(user.roles);
+      setRoleValue(user.roles);
   };
 
   const handleClose = () => {
     setOpen(false);
+    setRoleValue(user.roles);
   };
+
+
 
   // MODAL Start
   function getModalStyle() {
@@ -67,7 +84,7 @@ const UserItem = ({ user }) => {
       outline: 'none'
     },
     optBar: {
-      marginRight: '35px',
+      marginRight: '15px',
     },
     modalStats: {
      marginTop: '50px'
@@ -85,8 +102,8 @@ const UserItem = ({ user }) => {
       <div className={classes.roleDiv}>
       <p className={classes.test}>HANTERA ANVÄNDARE: <span style={{fontWeight: 'bold'}}>{user.firstName.toUpperCase()} {user.lastName.toUpperCase()}</span></p>
 
-        <select value={optionValue} onChange={changeOptionHandler} required className={classes.optBar} >
-          <option value="DEFAULT" disabled="disabled" >Banna användare i:?</option>
+        <select value={banValue} onChange={changeOptionHandler} required className={classes.optBar} >
+          <option  value="DEFAULT" disabled="disabled" >Banna användare i:?</option>
           <option>1 dag</option>
           <option>3 dagar</option>
           <option>7 dagar</option>
@@ -96,20 +113,22 @@ const UserItem = ({ user }) => {
         </select>
       </div>
       <div className={classes.roleDiv}>
-        <select value={optionValue} onChange={changeOptionHandler} required className={classes.optBar} >
+        <select value={roleValue} onChange={changeOptionHandler2} required className={classes.optBar} >
           <option value="DEFAULT" disabled="disabled" >Ändra användarens roll:</option>
           {user.roles === 'Member' ? <option>{user.roles}</option> : <option>Member</option> }
           {user.roles === 'Moderator' ? <option>{user.roles}</option> : <option>Moderator</option>}
           {user.roles === 'Administator' ? <option>{user.roles}</option> : <option>Administator</option>}
         </select>
+        
       </div>
       <div className={classes.roleDiv}>
         <button>statistik & info</button>
       </div>
+      {updateMsg && <p style={{ color: 'green' }}>{user.firstName} roll har uppdaterats.</p>}
       <div className={classes.modalStats}>
         <p>Antal besökare: </p>
         <p>Antal inlägg</p>
-        <p>Användar ID: </p>
+        <p>Användar ID: {user._id}</p>
         <p>email:</p>
       </div>
       

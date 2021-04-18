@@ -10,7 +10,6 @@ import '../style/ProfileMenu.css';
 import { useHistory } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContextProvider'
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
-import LibraryBooksRoundedIcon from '@material-ui/icons/LibraryBooksRounded';
 import HomeWorkRoundedIcon from '@material-ui/icons/HomeWorkRounded';
 
 
