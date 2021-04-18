@@ -19,13 +19,19 @@ const UserItem = ({ user }) => {
   const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
   const history = useHistory();
   const { whoAmI } = useContext(UserContext);
- const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [optionValue, setOptionValue] = useState(false);
   const goToProfilePage = () => {
     history.push('/users/' + user._id);
   }
 
+  const changeOptionHandler = (e) => {
+    setOptionValue(e.target.value);
+  }
+
     const handleOpen = () => {
-    setOpen(true);
+      setOpen(true);
+      setOptionValue(user.roles);
   };
 
   const handleClose = () => {
@@ -45,24 +51,68 @@ const UserItem = ({ user }) => {
   }
   
   const useStyles = makeStyles((theme) => ({
-  paper: {
+    test: {
+      textAlign: 'center',
+      width: '100%'
+    },
+    roleDiv: {
+      display: 'inline'
+    },
+    paper: {
     position: 'absolute',
-    width: 500,
+      width: 500,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    outline: 'none'
-  },
+      outline: 'none'
+    },
+    optBar: {
+      marginRight: '35px',
+    },
+    modalStats: {
+     marginTop: '50px'
+    }
 }));
 
 
 
-    const classes = useStyles();
+  const classes = useStyles();
   // Modal body
   const [modalStyle] = useState(getModalStyle);
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <CloseRoundedIcon onClick={handleClose} />
+      <div className={classes.roleDiv}>
+      <p className={classes.test}>HANTERA ANVÄNDARE: <span style={{fontWeight: 'bold'}}>{user.firstName.toUpperCase()} {user.lastName.toUpperCase()}</span></p>
+
+        <select value={optionValue} onChange={changeOptionHandler} required className={classes.optBar} >
+          <option value="DEFAULT" disabled="disabled" >Banna användare i:?</option>
+          <option>1 dag</option>
+          <option>3 dagar</option>
+          <option>7 dagar</option>
+          <option>14 dagar</option>
+          <option>30 dagar</option>
+          <option>Permanent</option>
+        </select>
+      </div>
+      <div className={classes.roleDiv}>
+        <select value={optionValue} onChange={changeOptionHandler} required className={classes.optBar} >
+          <option value="DEFAULT" disabled="disabled" >Ändra användarens roll:</option>
+          {user.roles === 'Member' ? <option>{user.roles}</option> : <option>Member</option> }
+          {user.roles === 'Moderator' ? <option>{user.roles}</option> : <option>Moderator</option>}
+          {user.roles === 'Administator' ? <option>{user.roles}</option> : <option>Administator</option>}
+        </select>
+      </div>
+      <div className={classes.roleDiv}>
+        <button>statistik & info</button>
+      </div>
+      <div className={classes.modalStats}>
+        <p>Antal besökare: </p>
+        <p>Antal inlägg</p>
+        <p>Användar ID: </p>
+        <p>email:</p>
+      </div>
+      
      
     </div>
   );
