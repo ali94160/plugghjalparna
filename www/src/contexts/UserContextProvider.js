@@ -30,6 +30,10 @@ export const UserProvider = (props) => {
       body: JSON.stringify(user)
     })
     res = await res.json();
+
+    // if (res === 'banned') {
+    //   console.log("vi fattar bannad");
+    // }
     if (res.success) {
       setUsers([...users, user])
 
@@ -37,7 +41,6 @@ export const UserProvider = (props) => {
         email: user.email,
         password: user.password
       };
-
       await login(userToLogin)
       whoIsOnline();
       return true;
@@ -56,6 +59,8 @@ export const UserProvider = (props) => {
     res = await res.json();
     if (!res) {
     } else {
+      // console.log(user, 'userrr');
+      // console.log(res, 'resss');
       return res;
     }
     

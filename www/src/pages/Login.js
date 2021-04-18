@@ -9,6 +9,7 @@ const Login = () => {
   const history = useHistory();
   const { login,whoIsOnline } = useContext(UserContext);
   const [failed, setFailed] = useState(false);
+  const [banned, setBanned] = useState(false);
 
 
   const email = useRef()
@@ -19,16 +20,30 @@ const Login = () => {
 
     const user = {
       email: email.current.value,
-      password: password.current.value
+      password: password.current.value,
+      banTime: whoIsOnline.banTime
     };
     
     const res = await login(user);
     if (!res) {
       setFailed(true);
-    } else {
+    }
+
+    if (res === 'banned') {
+      setBanned(true);
+      setFailed(false);
+    }
+
+    else if (res) {
+      setBanned(false);
       setFailed(false);
       whoIsOnline();
       history.push("/")
+      
+    } else {
+      console.log("Ej existera");
+      setFailed(true);
+      setBanned(false);
     }
   }
 
@@ -39,6 +54,7 @@ const Login = () => {
         <input ref={email} required placeholder="Email.." type="email" />
           <input ref={password} required placeholder="Password.." type="password" />
           {failed && <p>WRONG USERNAME/PASSWORD</p>}
+          {banned && <p>Your account has been banned.</p>}
           <button >Login</button>
           <div>  
            </div>

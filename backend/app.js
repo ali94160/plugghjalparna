@@ -86,10 +86,14 @@ app.post('/api/login', async (req, res) => {
   // Search for user
   let model = models['users'];
   let user = await model.findOne({ email: req.body.email, password: hash });
-  if(user){
+  if (user && user.banTime) {
+    res.json('banned');
+  }
+  else if(user){
     // succesful login, save the user to the session object
+
     req.session.user = user;
-    res.json({success: 'Logged in'});
+    res.json({ success: 'Logged in' });
   }
   else {
     res.json('');
