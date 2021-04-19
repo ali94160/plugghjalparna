@@ -1,18 +1,21 @@
 import React, {useEffect, useContext} from 'react';
 import '../style/Home.css';
-import {Link} from 'react-router-dom'
-import { useHistory} from 'react-router-dom'
 import { UserContext } from '../contexts/UserContextProvider'
 
 
 const Home = () => {
 
-  const { whoIsOnline } = useContext(UserContext);
-  const history = useHistory();
+  const { whoIsOnline, updateUser, whoAmI } = useContext(UserContext);
+  const dateToday = new Date();
+  const getOnlineDate = dateToday.toLocaleString().substring(0, 16);
   
   const start = async () => {
     const user = await whoIsOnline();
-    console.log(user);
+    console.log(user, 'ajj');
+    const dateObj = {
+      lastTimeOnline: getOnlineDate
+      }
+      updateUser(user._id, dateObj)
   }
 
   useEffect(() => {

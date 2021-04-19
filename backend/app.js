@@ -143,6 +143,7 @@ app.put('/rest/users/:id', async (req, res) => {
   if (req.body.roles) {
     user.roles = req.body.roles;
     delete req.body.roles;
+   
   }
 
   Object.assign(user, req.body)
