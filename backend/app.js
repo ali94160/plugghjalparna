@@ -39,7 +39,7 @@ app.get("/rest/:model", async (req, res) => {
 //get specific model by id
 app.get("/rest/:model/:id", async (req, res) => {
   let model = models[req.params.model]
-  let doc = await model.findById(req.params.id).populate(['userId']).exec();
+  let doc = await model.findById(req.params.id).populate(['userId', 'postId','commentsId']).exec();
   res.json(doc);
 })
 
@@ -121,7 +121,6 @@ app.get('/api/login', (req, res) => {
   }
 });
 
-
 // Update users page views.
 app.put('/rest/users/:id', async (req, res) => {
   let model = models['users']
@@ -154,6 +153,14 @@ app.put('/rest/users/:id', async (req, res) => {
 
 // _________________ POSTS _________________
 
+
+
+// delete a model with id
+app.delete('/rest/:model/:id', async (req, res) => {
+  let model = models[req.params.model];
+  let doc = await model.findByIdAndDelete(req.params.id);
+  res.json(doc);
+});
 
 
 

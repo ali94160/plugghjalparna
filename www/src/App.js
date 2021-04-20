@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { PostProvider } from './contexts/PostContextProvider'
 import React from 'react';
 import './App.css';
 import Login from './pages/Login'
@@ -12,6 +13,7 @@ function App() {
     
 
   return (
+<PostProvider>
 <Router>
       <div className="App">
 
@@ -28,7 +30,7 @@ function App() {
         </div>
         
 </Router>
-   
+</PostProvider>
     
   );
 }
