@@ -1,0 +1,31 @@
+.forumWrapper {
+  margin-top: 12vh;
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  background-color: red;
+  height: 80vh;
+  grid-gap: 15px;
+  padding: 10px;
+}
+
+.forumBoard {
+  background-color: lightcoral;
+}
+
+.forumSideBoard {
+  background-color: lightseagreen;
+  padding: 10px;
+}
+
+.forumWrapper .forumHeader {
+  background-color: green;
+  margin: 0;
+  padding: 0;
+}
+
+.forumWrapper .forumHeader h3 {
+  margin: 0;
+  padding: 10px;
+  height: 50px;
+  align-self: center;
+}
