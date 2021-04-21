@@ -9,6 +9,7 @@ import Nav from './components/Nav.js';
 import Users from './pages/Users';
 import Profile from './pages/Profile';
 import Forum from './pages/Forum';
+import AddPost from './pages/AddPost';
 function App() {
     
 
@@ -21,8 +22,9 @@ function App() {
         <Nav/>
         <Switch>
           <Route path="/users/:id" exact component={Profile} /> 
-              <Route path="/users" exact component={Users} />
-              <Route path="/forum" exact component={Forum} /> 
+          <Route path="/users" exact component={Users} />
+              <Route path="/forum" exact component={Forum} />
+              <Route path="/createPost" exact component={AddPost}/>
           <Route path="/" exact component={Home} /> 
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
