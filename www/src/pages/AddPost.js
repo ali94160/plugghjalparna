@@ -1,5 +1,9 @@
 import React, {useState, useRef} from 'react'
 import '../style/AddPost.css';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 
 
 
@@ -26,7 +30,25 @@ const AddPost = () => {
   return (
     <div className="addPost">
       <div className="formWrapper">
-      <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler}>
+          <div className="postSetting">
+              <FormControl component="fieldset">
+      <FormGroup aria-label="position" row>
+        <FormControlLabel
+          value="top"
+          control={<Checkbox color="secondary" />}
+          label="Lås"
+          labelPlacement="top"
+        />
+         <FormControlLabel
+          value="top"
+          control={<Checkbox color="primary" />}
+          label="Pinna"
+          labelPlacement="top"
+        />      
+      </FormGroup>
+    </FormControl>
+          </div>
       <h3> Vilket ämne ska inlägget publiceras?</h3>
       <select value={subject} onChange={changeOptionHandler} required className="optionBar" >
         <option defaultValue="DEFAULT" disabled="disabled" >Subject?</option>
@@ -42,9 +64,10 @@ const AddPost = () => {
           <option >IT-Support</option>
       </select>
         
-        <p className="formTitle">Titel</p>
-        <input required ref={title} className="inputTitle" type="text" placeholder="T.ex [Hjälp] ekvationen 5y+x(5+43)..." />
-
+          <p className="formTitle">Titel</p>
+       
+          <input required ref={title} className="inputTitle" type="text" placeholder="T.ex [Hjälp] ekvationen 5y+x(5+43)..." />
+        
         <p>Beskrivning</p> 
         <textarea required  className="formTextBox" placeholder="Skriv något här..." name="w3review" rows="6" cols="100"></textarea>
 

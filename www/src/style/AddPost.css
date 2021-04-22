@@ -69,3 +69,8 @@
   margin-top: 7px;
   padding-bottom: 10px;
 }
+
+.addPost .postSetting{
+  float: right;
+  margin-right: 80px;
+}
