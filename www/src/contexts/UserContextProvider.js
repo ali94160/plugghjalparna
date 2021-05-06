@@ -74,9 +74,8 @@ export const UserProvider = (props) => {
     // eslint-disable-next-line no-unused-vars
     res = await res.json();
     setWhoAmI(null);
-   
-    
   }
+
 
   const whoIsOnline = async() => {
     let data = await fetch('/api/login')

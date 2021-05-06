@@ -10,6 +10,7 @@ import Users from './pages/Users';
 import Profile from './pages/Profile';
 import Forum from './pages/Forum';
 import AddPost from './pages/AddPost';
+import SweSubForum from './pages/SweSubForum';
 function App() {
     
 
@@ -27,7 +28,8 @@ function App() {
               <Route path="/createPost" exact component={AddPost}/>
           <Route path="/" exact component={Home} /> 
           <Route path="/register" exact component={Register} />
-          <Route path="/login" exact component={Login} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/forum/svenska" ecact component={SweSubForum}/>
           </Switch>
          </div>
         </div>

@@ -1,17 +1,38 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useContext} from 'react'
 import '../style/AddPost.css';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
-
+import { UserContext } from '../contexts/UserContextProvider'
+import { PostContext } from '../contexts/PostContextProvider'
+import { useHistory } from 'react-router-dom'
 
 
 const AddPost = () => {
 
-  const [subject, setSubject] = useState();
+  const history = useHistory();
 
-  const title = useRef(null);
+ const { fetchPosts } = useContext(PostContext)
+  const dateToday = new Date();
+  const getRegDate = dateToday.toLocaleString().substring(0, 16);
+  const { whoAmI } = useContext(UserContext);
+  const { addPost } = useContext(PostContext)
+  const [subject, setSubject] = useState();
+  const [locked, setLocked] = useState(false);
+  const [pinned, setPinned] = useState(false);
+
+  const title = useRef();
+  const descRef = useRef();
+
+  const lockPostHandler = () => {
+    locked === false ? setLocked(true) : setLocked(false);
+  }
+
+  const pinPostHandler = () => {
+    pinned === false ? setPinned(true) : setPinned(false)
+  
+  }
 
   const changeOptionHandler = (e) => {
     setSubject(e.target.value);
@@ -21,7 +42,26 @@ const AddPost = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    const post = {
+      userID: whoAmI._id,
+      postedByName: whoAmI.firstName,
+      postedByLastName: whoAmI.lastName,
+      userRole: whoAmI.roles,
+      userProfileAvatar: whoAmI.profileImgURL,
+      title: title.current.value,
+      description: descRef.current.value,
+      postedDate: getRegDate,
+      postViews: 0,
+      subForum: subject,
+      likes: [],
+      isPinned: pinned,
+      isLocked: locked,
+      comments: []
+    }
 
+    addPost(post);
+    history.push('/forum')
+    fetchPosts();
 
   }
 
@@ -34,15 +74,22 @@ const AddPost = () => {
           <div className="postSetting">
               <FormControl component="fieldset">
       <FormGroup aria-label="position" row>
-        <FormControlLabel
-          value="top"
-          control={<Checkbox color="secondary" />}
+          <FormControlLabel
+           
+                    
+                  control={<Checkbox color="secondary"
+                    onClick={lockPostHandler}
+                    value={locked}
+          />}
           label="Lås"
           labelPlacement="top"
         />
-         <FormControlLabel
-          value="top"
-          control={<Checkbox color="primary" />}
+          <FormControlLabel
+          
+                  control={<Checkbox color="primary"
+                    onClick={pinPostHandler}
+                    value={pinned}
+                />}
           label="Pinna"
           labelPlacement="top"
         />      
@@ -69,7 +116,7 @@ const AddPost = () => {
           <input required ref={title} className="inputTitle" type="text" placeholder="T.ex [Hjälp] ekvationen 5y+x(5+43)..." />
         
         <p>Beskrivning</p> 
-        <textarea required  className="formTextBox" placeholder="Skriv något här..." name="w3review" rows="6" cols="100"></textarea>
+        <textarea required ref={descRef} className="formTextBox" placeholder="Skriv något här..." name="w3review" rows="6" cols="100"></textarea>
 
         <button className="formBtn">Create Post</button>
         </form>

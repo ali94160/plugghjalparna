@@ -18,7 +18,7 @@ const UserItem = ({ user }) => {
 
   const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
   const history = useHistory();
-  const { whoAmI, updateUser, fetchUsers } = useContext(UserContext);
+  const { whoAmI, updateUser, kickUser } = useContext(UserContext);
   const [open, setOpen] = useState(false);
   const [banValue, setBanValue] = useState(null);
   const [roleValue, setRoleValue] = useState(null);
@@ -45,7 +45,8 @@ const UserItem = ({ user }) => {
 
   const handleOpen = () => {
       setOpen(true);
-      setRoleValue(user.roles);
+    setRoleValue(user.roles);
+    console.log(user,'ajajaj');
   };
 
   const handleClose = () => {
@@ -53,7 +54,6 @@ const UserItem = ({ user }) => {
     setRoleValue(user.roles);
      window.location.reload();
   };
-
 
 
   // MODAL Start

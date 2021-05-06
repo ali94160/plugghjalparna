@@ -20,6 +20,10 @@ const Users = mongoose.model('user', {
 
 const Posts = mongoose.model('posts', {
   userID: { type: String, required: true },
+  postedByName: { type: String },
+  postedByLastName: { type: String },
+  userRole: { type: String },
+  userProfileAvatar: { type: String },
   title: { type: String },
   description: { type: String },
   postedDate: { type: String },
@@ -28,11 +32,13 @@ const Posts = mongoose.model('posts', {
   likes: { type: Array },
   isPinned: { type: Boolean },
   isLocked: { type: Boolean },
+  comments: { type: Array }
 });
 
 
 const Comments = mongoose.model('comments', {
   postID: { type: String, required: true },
+  userID: { type: String},
   description: { type: String },
   likes: { type: Array },
   commentDate: { type: String }

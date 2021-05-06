@@ -15,7 +15,10 @@ const Home = () => {
     const dateObj = {
       lastTimeOnline: getOnlineDate
       }
-      updateUser(user._id, dateObj)
+    updateUser(user._id, dateObj)
+    // if (whoAmI.banTime === true) {
+    //   console.log('user is banned');
+    // } 
   }
 
   useEffect(() => {
