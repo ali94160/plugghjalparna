@@ -55,7 +55,7 @@ const Forum = () => {
           </div>
       
 
-          <div className="subForumBorder">
+          <div className="subForumBorder" onClick={() => history.push('/forum/matematik')} >
           <p className="subForumTitle">Matematik</p>
           <p className="subBread" style={{fontSize: '15px'}}>Diskutioner om ämnet Matematik.</p>
           </div>

@@ -4,9 +4,11 @@ import { PostContext } from '../contexts/PostContextProvider'
 import { UserContext } from '../contexts/UserContextProvider';
 import PostList from '../components/PostList';
 
+
 const Forum = () => {
 // Visa swe och math subjects enskilt i olika sidor, och ha en sub meny forum ist.
-const { fetchPosts } = useContext(PostContext)
+  const { fetchPosts } = useContext(PostContext)
+  
 const [posts, setPosts] = useState(null);
   
 useEffect(() => {
@@ -21,9 +23,6 @@ useEffect(() => {
       <div className="forumBoard">
         <header className="forumHeader"><h3>FORUM</h3></header>
         <div>
-          <div className="subForumBorder">
-            <p className="subForumTitle">Matematik</p>
-          </div>
           {posts && <PostList posts={posts} />}
         </div>
       </div>

@@ -11,6 +11,8 @@ import Profile from './pages/Profile';
 import Forum from './pages/Forum';
 import AddPost from './pages/AddPost';
 import SweSubForum from './pages/SweSubForum';
+import MathSubForum from './pages/MathSubForum'
+
 function App() {
     
 
@@ -29,7 +31,8 @@ function App() {
           <Route path="/" exact component={Home} /> 
           <Route path="/register" exact component={Register} />
               <Route path="/login" exact component={Login} />
-              <Route path="/forum/svenska" ecact component={SweSubForum}/>
+              <Route path="/forum/svenska" ecact component={SweSubForum} />
+              <Route path="/forum/matematik" exact component={MathSubForum}/>
           </Switch>
          </div>
         </div>
