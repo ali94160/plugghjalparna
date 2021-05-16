@@ -5,7 +5,8 @@ import { useHistory } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContextProvider'
 
 
-export default function CreateUser () {
+export default function CreateUser() {
+  
   const history = useHistory();
   const { addUser } = useContext(UserContext);
 

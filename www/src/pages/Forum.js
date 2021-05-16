@@ -41,7 +41,7 @@ const Forum = () => {
     <div className="forumWrapper">
 
       <div className="forumBoard">
-        <header className="forumHeader"><h3>FORUM</h3></header>
+        <header className="forumHeader"><h3 onClick={ () => history.push('/forum')} >FORUM</h3></header>
   
 
         <div className="subForumBorder" >

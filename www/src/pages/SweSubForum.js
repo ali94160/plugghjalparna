@@ -4,9 +4,12 @@ import { PostContext } from '../contexts/PostContextProvider'
 import { UserContext } from '../contexts/UserContextProvider';
 import PostList from '../components/PostList';
 import SwePostList from '../components/SwePostList';
+import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
+import { useHistory } from 'react-router-dom'
 
 const SweSubForum = () => {
 
+  const history = useHistory();
   const { fetchPosts } = useContext(PostContext)
   const [swePosts, setSwePosts] = useState(null);
   
@@ -28,7 +31,7 @@ const SweSubForum = () => {
     <div className="forumWrapper">
 
       <div className="forumBoard">
-        <header className="forumHeader"><h3>Svenska</h3></header>
+        <header className="forumHeader"><h3 style={{ height: '5px' }} >Svenska</h3><KeyboardReturnIcon onClick={() => history.push('/forum')} style={{ cursor: 'pointer'}}/></header>
 
         <div>
           {console.log(swePosts, 'swe?')}

@@ -12,6 +12,7 @@ import Forum from './pages/Forum';
 import AddPost from './pages/AddPost';
 import SweSubForum from './pages/SweSubForum';
 import MathSubForum from './pages/MathSubForum'
+import MathPostPage from './pages/MathPostPage'
 
 function App() {
     
@@ -32,7 +33,8 @@ function App() {
           <Route path="/register" exact component={Register} />
               <Route path="/login" exact component={Login} />
               <Route path="/forum/svenska" ecact component={SweSubForum} />
-              <Route path="/forum/matematik" exact component={MathSubForum}/>
+              <Route path="/forum/matematik" exact component={MathSubForum} />
+              <Route path="/forum/matematik/:id" exact component={MathPostPage} /> 
           </Switch>
          </div>
         </div>

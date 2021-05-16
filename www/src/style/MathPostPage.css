@@ -1,0 +1,21 @@
+.postDivInfo .profileIMG {
+  margin-top: 9%;
+  max-width: 60%;
+  border-radius: 50%;
+}
+
+.postDivInfo .imageCard span {
+  position: relative;
+  top: -3px;
+}
+
+.postDivInfo {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+
+.postDivInfo .imageCard {
+  border: 2px solid black;
+  width: 200px;
+  padding-left: 40px;
+}

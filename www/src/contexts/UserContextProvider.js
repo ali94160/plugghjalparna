@@ -63,8 +63,8 @@ export const UserProvider = (props) => {
       // console.log(res, 'resss');
       return res;
     }
-    
   }
+
 
   const logOut = async () => {
     let res = await fetch('/api/login', {
@@ -77,7 +77,7 @@ export const UserProvider = (props) => {
   }
 
 
-  const whoIsOnline = async() => {
+  const whoIsOnline = async () => {
     let data = await fetch('/api/login')
     data = await data.json();
     if (!data) {
@@ -111,7 +111,7 @@ export const UserProvider = (props) => {
     whoAmI,
     logOut,
     fetchUsers,
-    updateUser
+     updateUser
   }
   
   return (
