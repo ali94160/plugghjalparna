@@ -21,11 +21,24 @@
   background-color: green;
   margin: 0;
   padding: 5px;
+  display: grid;
+  grid-template-columns: 95% 5%;
+  height: 7%;
+}
+
+.forumWrapper .forumHeader span {
+  margin: 0;
+  padding: 6px 5px 0 25px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.forumWrapper .forumHeader span:hover {
+  text-decoration: underline;
 }
 
 .forumWrapper .forumHeader h3 {
   margin: 0;
-  padding-bottom: 5px;
+  margin: 10px 10px 0 5px;
   height: 50px;
 }
 

@@ -3,8 +3,8 @@ import '../style/Forum.css';
 import { PostContext } from '../contexts/PostContextProvider'
 import { UserContext } from '../contexts/UserContextProvider';
 import { useHistory } from 'react-router-dom'
-import PostList from '../components/PostList';
-import SwePostList from '../components/SwePostList';
+import PostAddSharpIcon from '@material-ui/icons/PostAddSharp';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const Forum = () => {
 
@@ -41,8 +41,11 @@ const Forum = () => {
     <div className="forumWrapper">
 
       <div className="forumBoard">
-        <header className="forumHeader"><h3 onClick={ () => history.push('/forum')} >FORUM</h3></header>
-  
+        <header className="forumHeader"><h3>FORUM</h3> 
+            <Tooltip title="SKAPA INLÄGG" arrow >
+              <PostAddSharpIcon style={{cursor: "pointer"}} />
+            </Tooltip>
+          </header>
 
         <div className="subForumBorder" >
           <p className="subForumTitle">Nyheter</p>
