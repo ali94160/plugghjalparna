@@ -43,7 +43,7 @@ const Forum = () => {
       <div className="forumBoard">
         <header className="forumHeader"><h3>FORUM</h3> 
             <Tooltip title="SKAPA INLÄGG" arrow >
-              <PostAddSharpIcon style={{cursor: "pointer"}} />
+              <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
             </Tooltip>
           </header>
 

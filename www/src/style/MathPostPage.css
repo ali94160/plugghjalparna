@@ -9,13 +9,32 @@
   top: -3px;
 }
 
+.forumBoard .postByName {
+  color: rgb(0, 88, 170);
+}
+
+.forumBoard .postNameAndDate{
+  margin-left: 200px;
+}
+
+.forumBoard .topicTitle {
+  margin-left: 200px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.postDivInfo .postInfo {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 20px;
+}
+
 .postDivInfo {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 200px 1fr;
 }
 
 .postDivInfo .imageCard {
-  border: 2px solid black;
   width: 200px;
   padding-left: 40px;
 }

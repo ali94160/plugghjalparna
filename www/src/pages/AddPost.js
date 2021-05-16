@@ -103,12 +103,7 @@ const AddPost = () => {
         <option >Matematik</option>
         <option >Svenska</option>
         <option >Engelska</option>
-        <option >Kemi</option>
-        <option >Fysik</option>
-        <option >Biologi</option>
-        <option >Historia</option>
           <option >Nyheter</option>
-          <option >IT-Support</option>
       </select>
         
           <p className="formTitle">Titel</p>
