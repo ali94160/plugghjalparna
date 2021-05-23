@@ -22,6 +22,8 @@ const MathPostPage = () => {
   const { id } = useParams();
   const post = posts.find(p => p._id === id);
   const user = post && users.find(r => r._id === post.userID);
+  const [likeCheck, setLikeCheck] = useState(false)
+  
 
   // TODO: fetcha data för o visa antal posts i varje subforum. OnClick to specefik subforum inlägg. 
   // ? Visa senaste inlägget: img,by, postdate
@@ -39,7 +41,17 @@ const MathPostPage = () => {
         ))}
     </div>
   );
+  const likeChecker = () => {
+    if (!post.likes.find(l => l._id === whoAmI._id)) {
+      console.log("trueee");
+      setLikeCheck(true)
+    } else {
+      console.log("Fallze");
+      setLikeCheck(false);
+    }
 
+  };
+ 
   
   
 
@@ -50,15 +62,22 @@ const MathPostPage = () => {
         likes: whoAmI
       }
       updatePost(id, postObj)
-    } 
+    }
   }
 
+
+  useEffect(() => {
+    if(whoAmI && post)
+    likeChecker()
+  },[likeChecker]);
   
   
- useEffect(() => {
+  useEffect(() => {
+    
     if (post && post.userID && whoAmI) {
       fetchPosts()
       fetchUsers()
+    
     }
   }, []);
 
@@ -80,7 +99,7 @@ const MathPostPage = () => {
           <span style={{ color: 'red', fontWeight: 'bold' }}> {post.postedByName}  {post.postedByLastName}</span>} <span>,
             {post.postedDate}</span>
           <Tooltip title={renderLikedUsers()} arrow >
-            <span className="likes"> {post.likes.length} <ThumbUpOutlinedIcon style={{ fontSize: '17px' }} color="primary" onClick={addLike} /> </span>
+            <span className="likes"> {post.likes.length} {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px' }} color="primary" onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '17px' }} color="disabled"  />} </span>
           </Tooltip>
         </div>
      
