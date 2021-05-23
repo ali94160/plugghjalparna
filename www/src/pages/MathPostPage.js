@@ -11,6 +11,7 @@ import BookmarksSharpIcon from '@material-ui/icons/BookmarksSharp';
 import LockSharpIcon from '@material-ui/icons/LockSharp';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import Tooltip from '@material-ui/core/Tooltip';
+import PostAddSharpIcon from '@material-ui/icons/PostAddSharp';
 
 const MathPostPage = () => {
 
@@ -67,7 +68,12 @@ const MathPostPage = () => {
     <div className="forumWrapper">
 
       {post && user &&  <div className="forumBoard">
-        <header className="forumHeader"><h3 onClick={() => history.push('/forum')} >FORUM / {post.title}</h3></header>
+        <header className="forumHeader"><h3 onClick={() => history.push('/forum')} >FORUM / {post.title}</h3>
+                <Tooltip title="SKAPA INLÄGG" arrow >
+              <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
+            </Tooltip></header>
+
+
         <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" fontSize="small" />} {post.isLocked && <LockSharpIcon color="error" fontSize="small" />} </p>
         
         <div className="postNameAndDate"> {post.userRole === 'Administrator' ? <span className="postByName"> {post.postedByName}  {post.postedByLastName}</span> :

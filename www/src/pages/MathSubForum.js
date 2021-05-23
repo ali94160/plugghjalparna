@@ -3,13 +3,15 @@ import '../style/Forum.css';
 import { PostContext } from '../contexts/PostContextProvider'
 import { UserContext } from '../contexts/UserContextProvider';
 import PostList from '../components/PostList';
-
+import PostAddSharpIcon from '@material-ui/icons/PostAddSharp';
+import Tooltip from '@material-ui/core/Tooltip';
+import { useHistory } from 'react-router-dom'
 
 const Forum = () => {
 // Visa swe och math subjects enskilt i olika sidor, och ha en sub meny forum ist.
-  const { fetchPosts } = useContext(PostContext)
-  
-const [posts, setPosts] = useState(null);
+  const { fetchPosts } = useContext(PostContext)  
+  const [posts, setPosts] = useState(null);
+  const history = useHistory();
   
 useEffect(() => {
   fetchPosts().then(p => {
@@ -21,7 +23,10 @@ useEffect(() => {
   return (
     <div className="forumWrapper">
       <div className="forumBoard">
-        <header className="forumHeader"><h3>FORUM</h3></header>
+        <header className="forumHeader"><h3>FORUM</h3>
+        <Tooltip title="SKAPA INLÄGG" arrow >
+              <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
+            </Tooltip></header>
         <div>
           {posts && <PostList posts={posts} />}
         </div>
