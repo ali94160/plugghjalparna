@@ -13,7 +13,7 @@
   color: rgb(0, 88, 170);
 }
 
-.forumBoard .postNameAndDate{
+.forumBoard .postNameAndDate {
   margin-left: 200px;
 }
 
@@ -27,6 +27,8 @@
   border: 1px solid black;
   padding: 10px;
   border-radius: 20px;
+  height: fit-content;
+  width: 95%;
 }
 
 .postDivInfo {
@@ -37,4 +39,24 @@
 .postDivInfo .imageCard {
   width: 200px;
   padding-left: 40px;
+}
+
+.forumBoard .underInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.forumBoard .postDivInfo {
+  display: grid;
+}
+
+.forumBoard .commentBtn {
+  display: grid;
+  margin: 15px 10px 0 0;
+  float: left;
+}
+
+.forumBoard .likes {
+  cursor: pointer;
+  margin-left: 10px;
 }

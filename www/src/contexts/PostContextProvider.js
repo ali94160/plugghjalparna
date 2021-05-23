@@ -23,7 +23,7 @@ export const PostProvider = (props) => {
 
   const updatePost = async (id, post) => {
     let res = await fetch('/rest/posts/' + id, {
-      method: 'PUT',
+      method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(post)
     })

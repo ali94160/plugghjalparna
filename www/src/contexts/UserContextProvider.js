@@ -11,7 +11,11 @@ export const UserProvider = (props) => {
 
   
   const fetchUsers = async() => {
-    let data = await fetch('/rest/users')
+    let data = await fetch('/rest/users', {
+      headers : { 
+        'Content-Type': 'application/json'
+       }
+    })
     data = await data.json();
     console.log(data , "här");
     setUsers([...data]);

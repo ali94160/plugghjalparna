@@ -19,6 +19,7 @@ global.mongoose.connect(atlasURL, {
 
 const models = require('./models.js');
 const { users } = require("./models.js");
+const { Router } = require("express");
 const secret = 'S0m3#p30p13_l1k35-c1l4n7r0,_50m3.d0N7';
 
 app.use(session({
@@ -103,7 +104,7 @@ app.post('/api/login', async (req, res) => {
 app.delete('/api/login', (req, res) => {
   if(req.session.user){
     delete req.session.user;
-    res.json({success: 'Logged out'});
+    res.json({ success: 'Logged out' });
   }
   else {
     res.json({error: 'Was not logged in'});
@@ -157,13 +158,25 @@ app.put('/rest/users/:id', async (req, res) => {
 // _________________ POSTS _________________
 
 
-
 // delete a model with id
 app.delete('/rest/:model/:id', async (req, res) => {
   let model = models[req.params.model];
   let doc = await model.findByIdAndDelete(req.params.id);
   res.json(doc);
 });
+
+// update post
+app.post('/rest/posts/:id', async (req, res) => {
+  let model = models['posts']
+
+  let post = await model.findById(req.params.id)
+
+  post.likes.push(req.body.likes)
+  await post.save()
+  res.json(post)
+})
+
+
 
 
 
