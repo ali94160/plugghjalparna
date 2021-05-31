@@ -18,10 +18,10 @@ const UserItem = ({ user }) => {
 
   const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
   const history = useHistory();
-  const { whoAmI, updateUser, kickUser } = useContext(UserContext);
+  const { whoAmI, updateUser, whoIsOnline } = useContext(UserContext);
   const [open, setOpen] = useState(false);
-  const [banValue, setBanValue] = useState(null);
-  const [roleValue, setRoleValue] = useState(null);
+  const [banValue, setBanValue] = useState('');
+  const [roleValue, setRoleValue] = useState('');
   const [updateMsg, setUpdateMsg] = useState(null);
   const goToProfilePage = () => {
     history.push('/users/' + user._id);
@@ -34,12 +34,12 @@ const UserItem = ({ user }) => {
   }
 
   const changeOptionHandler2 = async (e) => {
-  
+
     setUpdateMsg(true);
     const roleObj = {
       roles: e.target.value
     }
-    updateUser(user._id, roleObj);
+    await updateUser(user._id, roleObj);
    
   }
 

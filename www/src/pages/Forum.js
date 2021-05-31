@@ -11,31 +11,6 @@ const Forum = () => {
   const { fetchPosts } = useContext(PostContext)
   const history = useHistory();
 
-  // TODO: fetcha data för o visa antal posts i varje subforum. OnClick to specefik subforum inlägg. 
-  // ? Visa senaste inlägget: img,by, postdate
-  
-  const [posts, setPosts] = useState(null);
-  const [swePosts, setSwePosts] = useState(null);
-  
-  useEffect(() => {
-    fetchPosts().then(p => {
-      const mathFilter = p.filter(mat => mat.subForum === 'Matematik')
-       setPosts([...mathFilter])
-      if (p) {
-        console.log('inne');
-        const sweFilter = p.filter(swe => swe.subForum === 'Svenska')
-        console.log(sweFilter, 'filtereSwe');
-        setSwePosts([...sweFilter])
-      } else {
-       
-      }
-      
-      })
-  }, []);
-
-  useEffect(() => {
-
-  },[]);
   
   return (
     <div className="forumWrapper">

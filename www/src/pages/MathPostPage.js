@@ -92,20 +92,17 @@ const MathPostPage = () => {
               <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
             </Tooltip></header>
 
-
         <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" fontSize="small" />} {post.isLocked && <LockSharpIcon color="error" fontSize="small" />} </p>
-        
         <div className="postNameAndDate"> {post.userRole === 'Administrator' ? <span className="postByName"> {post.postedByName}  {post.postedByLastName}</span> :
-          <span style={{ color: 'red', fontWeight: 'bold' }}> {post.postedByName}  {post.postedByLastName}</span>} <span>,
+          <span style={{ color: '#f44336', fontWeight: 'bold' }}> {post.postedByName}  {post.postedByLastName}</span>} <span>,
             {post.postedDate}</span>
           <Tooltip title={renderLikedUsers()} arrow >
-            <span className="likes"> {post.likes.length} {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px' }} color="primary" onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '17px' }} color="disabled"  />} </span>
+            <span className="likes"> <span style={{fontSize: '20px', color: '#1a39e2'}}> { post.likes.length}</span> {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '6879d6' }} onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '#1a39e2' }}   />} </span>
           </Tooltip>
         </div>
-     
 
         <div className="postDivInfo">
-          <div className="imageCard">
+          <div className="imageCard" style={{position: 'relative', top: '-60px'}}>
             {post.userProfileAvatar ? <img className="profileIMG" src={post.userProfileAvatar} alt="" /> : <img className="defaultIMG" src={defaultIMG} alt="" />}
             {user.banTime ? <NotInterestedRoundedIcon fontSize="small" color="secondary" style={{ marginLeft: '-25px' }} /> : ''}
             {user.roles === 'Member' ? <p><CheckCircleRoundedIcon fontSize="small" /><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small" /><span> {user.roles}</span></p>}
@@ -113,9 +110,17 @@ const MathPostPage = () => {
           
           <div className="postInfo">
             <div><p>{post.description}</p></div>
-            
           </div>
+
+
           <div className="underInfo">
+            <div className="commentProfile">
+              {whoAmI.profileImgURL ? <img className="profileIMG" src={whoAmI.profileImgURL} alt="" /> : <img className="defaultIMG" src={defaultIMG} alt="" />}
+              </div>
+              {whoAmI.roles === "Administator" ? <span className="commentName" style={{ color: '#f44336', fontWeight: 'bold' }}> {whoAmI.firstName}  {whoAmI.lastName}</span> :
+              <span className="commentName"> {whoAmI.firstName}  {whoAmI.lastName}</span>}
+            
+            <textarea className="commentBox" cols="30" rows="10"></textarea>
             <button className="commentBtn">Kommentera</button>
           </div>
           

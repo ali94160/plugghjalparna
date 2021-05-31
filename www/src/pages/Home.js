@@ -5,7 +5,7 @@ import { UserContext } from '../contexts/UserContextProvider'
 
 const Home = () => {
 
-  const { whoIsOnline, updateUser, whoAmI } = useContext(UserContext);
+  const { whoIsOnline, updateUser } = useContext(UserContext);
   const dateToday = new Date();
   const getOnlineDate = dateToday.toLocaleString().substring(0, 16);
   
@@ -32,7 +32,7 @@ const Home = () => {
   },[])
   
   const exploreHandler = () => {
-    console.log("tar mig till en sida");
+    console.log('knape');
     
   }
 

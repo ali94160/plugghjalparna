@@ -146,7 +146,6 @@ app.put('/rest/users/:id', async (req, res) => {
   if (req.body.roles) {
     user.roles = req.body.roles;
     delete req.body.roles;
-   
   }
 
   Object.assign(user, req.body)
@@ -155,6 +154,13 @@ app.put('/rest/users/:id', async (req, res) => {
 });
 
 
+app.put('/rest/users/:id', async (req, res) => {
+  let model = models['users']
+  let user = await model.findById(req.params.id)
+  Object.assign(user, req.body)
+  await user.save()
+  res.json(user)
+});
 // _________________ POSTS _________________
 
 
@@ -175,9 +181,6 @@ app.post('/rest/posts/:id', async (req, res) => {
   await post.save()
   res.json(post)
 })
-
-
-
 
 
 app.listen(3002, () => console.log("server started on port 3002"));

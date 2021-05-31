@@ -93,6 +93,7 @@ export const UserProvider = (props) => {
     }
   }
 
+
   const updateUser = async (id, userObj) => {
      let res = await fetch('/rest/users/' + id, {
       method: 'PUT',
@@ -104,7 +105,17 @@ export const UserProvider = (props) => {
     fetchUsers();
   }
 
- 
+    const updateWhoAmI = async (id, userObj) => {
+     let res = await fetch('/api/login/' + id, {
+      method: 'PUT',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(userObj)
+     })
+
+    res = await res.json()
+      whoIsOnline();
+  }
+
 
    const values = {
     users,
@@ -115,7 +126,8 @@ export const UserProvider = (props) => {
     whoAmI,
     logOut,
     fetchUsers,
-     updateUser
+     updateUser,
+    updateWhoAmI
   }
   
   return (

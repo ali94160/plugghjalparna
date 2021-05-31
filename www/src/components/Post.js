@@ -13,12 +13,12 @@ const Post = ({posts}) => {
 
   return (
     <div className="postDiv" onClick={ () => history.push('/forum/matematik/' + posts._id)}>
-    <p className="postTitle">{posts.title}</p>
-      <p><span style={{ fontWeight: 'bold', fontSize: '12px' }}>AV:</span> {posts.postedByName}  {posts.postedByLastName}</p>
-      <p>{posts.postedDate}</p>
-      <p>visningar: {posts.postViews}</p>
-      { posts.isPinned && <BookmarksSharpIcon />}
-      { posts.isLocked && <LockSharpIcon/>}
+      <p className="postTitle">{posts.title}
+         <span style={{marginLeft: '15px'}}>{posts.isPinned && <BookmarksSharpIcon style={{fontSize: '12px', marginRight: '3px'}} />}
+          {posts.isLocked && <LockSharpIcon color="error" style={{fontSize: '12px'}} />}
+        </span></p>
+      <p style={{margin: 0, color: '#323536'}}><span style={{ fontWeight: 'bold', fontSize: '12px', margin: 0 }}>AV:</span> {posts.postedByName}  {posts.postedByLastName}, <span>{posts.postedDate}</span><span style={{float: 'right', paddingRight: '10px'}}>visningar: {posts.postViews}</span></p>
+      
       
     </div>
   );

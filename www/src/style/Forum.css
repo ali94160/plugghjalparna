@@ -2,14 +2,13 @@
   margin-top: 12vh;
   display: grid;
   grid-template-columns: 1fr 30%;
-  background-color: red;
+
   height: 80vh;
   grid-gap: 15px;
   padding: 10px;
 }
 
 .forumBoard {
-  background-color: lightcoral;
 }
 
 .forumSideBoard {
@@ -18,12 +17,13 @@
 }
 
 .forumWrapper .forumHeader {
-  background-color: green;
+  background-color: lightblue;
   margin: 0;
   padding: 5px;
   display: grid;
   grid-template-columns: 95% 5%;
   height: 7%;
+  box-sizing: border-box;
 }
 
 .forumWrapper .forumHeader span {
@@ -56,9 +56,13 @@
 
 .forumWrapper .postTitle {
   font-weight: bold;
+  font-size: 18px;
+  margin: 0;
 }
 
 .forumWrapper .subBread {
   margin-bottom: 10px;
   margin: 0;
 }
+
+

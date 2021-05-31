@@ -15,6 +15,7 @@
 
 .forumBoard .postNameAndDate {
   margin-left: 200px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .forumBoard .topicTitle {
@@ -24,9 +25,10 @@
 }
 
 .postDivInfo .postInfo {
-  border: 1px solid black;
+  margin-top: 10px;
+  background-color: rgb(212, 223, 238);
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 15px;
   height: fit-content;
   width: 95%;
 }
@@ -41,9 +43,23 @@
   padding-left: 40px;
 }
 
-.forumBoard .underInfo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+
+.forumBoard .underInfo .commentBox {
+  margin: 0 auto;
+  resize: none;
+  height: 150px;
+  width: 700px;
+  overflow: auto;
+  outline: none;
+  font-size: 17px;
+}
+
+.forumBoard .underInfo .commentBtn {
+  float: right;
+}
+
+.forumBoard .underInfo .commentName {
+  margin-left: 20px;
 }
 
 .forumBoard .postDivInfo {
