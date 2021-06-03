@@ -1,5 +1,20 @@
+.profileIMG2 {
+  margin-left: 15px;
+  margin-top: 20%;
+
+  max-width: 70%;
+  border-radius: 50%;
+}
+
 .postDivInfo .profileIMG {
   margin-top: 9%;
+  max-width: 60%;
+  border-radius: 50%;
+}
+
+.defaultIMG2 {
+  margin-top: 15%;
+  margin-left: 20px;
   max-width: 60%;
   border-radius: 50%;
 }
@@ -43,23 +58,29 @@
   padding-left: 40px;
 }
 
-
 .forumBoard .underInfo .commentBox {
   margin: 0 auto;
   resize: none;
-  height: 150px;
-  width: 700px;
+  height: 100px;
+  width: 600px;
   overflow: auto;
   outline: none;
   font-size: 17px;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid rgba(73, 73, 73, 0.424);
 }
 
 .forumBoard .underInfo .commentBtn {
-  float: right;
+  border-radius: 0 10px 10px 0;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.205);
+  background-color: rgba(255, 255, 255, 0.534);
 }
 
 .forumBoard .underInfo .commentName {
-  margin-left: 20px;
+  width: fit-content;
+  text-align: center;
 }
 
 .forumBoard .postDivInfo {
@@ -67,12 +88,16 @@
 }
 
 .forumBoard .commentBtn {
-  display: grid;
-  margin: 15px 10px 0 0;
-  float: left;
 }
 
 .forumBoard .likes {
   cursor: pointer;
   margin-left: 10px;
+}
+
+.forumBoard .underInfo {
+  display: grid;
+  grid-template-columns: 80px 607px 40px;
+
+  margin-top: 5%;
 }

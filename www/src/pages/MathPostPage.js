@@ -12,6 +12,7 @@ import LockSharpIcon from '@material-ui/icons/LockSharp';
 import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import Tooltip from '@material-ui/core/Tooltip';
 import PostAddSharpIcon from '@material-ui/icons/PostAddSharp';
+import SendIcon from '@material-ui/icons/Send';
 
 const MathPostPage = () => {
 
@@ -86,22 +87,22 @@ const MathPostPage = () => {
   return (
     <div className="forumWrapper">
 
-      {post && user &&  <div className="forumBoard">
+      {post && user &&  <div className="forumBoard" >
         <header className="forumHeader"><h3 onClick={() => history.push('/forum')} >FORUM / {post.title}</h3>
                 <Tooltip title="SKAPA INLÄGG" arrow >
               <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
             </Tooltip></header>
 
-        <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" fontSize="small" />} {post.isLocked && <LockSharpIcon color="error" fontSize="small" />} </p>
-        <div className="postNameAndDate"> {post.userRole === 'Administrator' ? <span className="postByName"> {post.postedByName}  {post.postedByLastName}</span> :
-          <span style={{ color: '#f44336', fontWeight: 'bold' }}> {post.postedByName}  {post.postedByLastName}</span>} <span>,
+        <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" style={{fontSize: '17px'}} />} {post.isLocked && <LockSharpIcon color="error" style={{fontSize: '17px'}} />} </p>
+        <div className="postNameAndDate"> {user.roles === 'Administator' ? <span className="postByName" style={{ color: 'red', fontWeight: 'bold' }}> {user.firstName}  {user.lastName}</span> :
+          <span className="postByName"> {user.firstName}  {user.lastName}</span>} <span>,
             {post.postedDate}</span>
           <Tooltip title={renderLikedUsers()} arrow >
             <span className="likes"> <span style={{fontSize: '20px', color: '#1a39e2'}}> { post.likes.length}</span> {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '6879d6' }} onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '#1a39e2' }}   />} </span>
           </Tooltip>
         </div>
 
-        <div className="postDivInfo">
+        <div className="postDivInfo" >
           <div className="imageCard" style={{position: 'relative', top: '-60px'}}>
             {post.userProfileAvatar ? <img className="profileIMG" src={post.userProfileAvatar} alt="" /> : <img className="defaultIMG" src={defaultIMG} alt="" />}
             {user.banTime ? <NotInterestedRoundedIcon fontSize="small" color="secondary" style={{ marginLeft: '-25px' }} /> : ''}
@@ -111,21 +112,19 @@ const MathPostPage = () => {
           <div className="postInfo">
             <div><p>{post.description}</p></div>
           </div>
-
-
-          <div className="underInfo">
-            <div className="commentProfile">
-              {whoAmI.profileImgURL ? <img className="profileIMG" src={whoAmI.profileImgURL} alt="" /> : <img className="defaultIMG" src={defaultIMG} alt="" />}
-              </div>
-              {whoAmI.roles === "Administator" ? <span className="commentName" style={{ color: '#f44336', fontWeight: 'bold' }}> {whoAmI.firstName}  {whoAmI.lastName}</span> :
-              <span className="commentName"> {whoAmI.firstName}  {whoAmI.lastName}</span>}
-            
-            <textarea className="commentBox" cols="30" rows="10"></textarea>
-            <button className="commentBtn">Kommentera</button>
-          </div>
           
         </div>
-      
+        <hr/>
+      <div className="underInfo">
+            <div className="commentProfile">
+              {whoAmI.profileImgURL ? <img className="profileIMG2" src={whoAmI.profileImgURL} alt="" /> : <img className="defaultIMG2" src={defaultIMG} alt="" />} 
+            </div>
+              
+            
+            <textarea className="commentBox" cols="30" rows="10" placeholder=" skriv din kommentar här!"></textarea>
+            <button className="commentBtn"><SendIcon color="inherit"/></button>
+          </div>
+        
       </div>}
 
       

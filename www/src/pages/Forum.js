@@ -1,14 +1,10 @@
 import React,{useContext, useEffect, useState} from 'react'
 import '../style/Forum.css';
-import { PostContext } from '../contexts/PostContextProvider'
-import { UserContext } from '../contexts/UserContextProvider';
 import { useHistory } from 'react-router-dom'
 import PostAddSharpIcon from '@material-ui/icons/PostAddSharp';
 import Tooltip from '@material-ui/core/Tooltip';
 
 const Forum = () => {
-
-  const { fetchPosts } = useContext(PostContext)
   const history = useHistory();
 
   
