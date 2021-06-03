@@ -53,6 +53,11 @@
   background-color: #fff;
   margin: 25px 0 25px 0;
   padding: 20px;
+  cursor: pointer;
+}
+
+.forumWrapper .subForumBorder:hover {
+  color: rgb(19, 148, 196);
 }
 
 .forumWrapper .postTitle {
