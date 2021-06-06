@@ -1,4 +1,4 @@
-import React,{useContext, useEffect, useState} from 'react'
+import React,{useContext, useEffect, useState, useRef} from 'react'
 import '../style/Forum.css';
 import '../style/MathPostPage.css'
 import { PostContext } from '../contexts/PostContextProvider'
@@ -13,6 +13,7 @@ import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
 import Tooltip from '@material-ui/core/Tooltip';
 import PostAddSharpIcon from '@material-ui/icons/PostAddSharp';
 import SendIcon from '@material-ui/icons/Send';
+import CommentItem from '../components/CommentItem'
 
 const MathPostPage = () => {
 
@@ -24,6 +25,9 @@ const MathPostPage = () => {
   const post = posts.find(p => p._id === id);
   const user = post && users.find(r => r._id === post.userID);
   const [likeCheck, setLikeCheck] = useState(false)
+  const commentRef = useRef('');
+  const dateToday = new Date();
+  const getRegDate = dateToday.toLocaleString().substring(0, 16);
   
 
   // TODO: fetcha data för o visa antal posts i varje subforum. OnClick to specefik subforum inlägg. 
@@ -44,21 +48,33 @@ const MathPostPage = () => {
   );
   const likeChecker = () => {
     if (!post.likes.find(l => l._id === whoAmI._id)) {
-      console.log("trueee");
       setLikeCheck(true)
     } else {
-      console.log("Fallze");
       setLikeCheck(false);
     }
 
   };
  
-  
+  const addComment = () => {
+    if (commentRef != null) {
+      const commentObjBuild = {
+      commentText: commentRef.current.value,
+      commentBy: `${whoAmI.firstName} ${ whoAmI.lastName}`,
+      commentDate: getRegDate,
+      commentAvatar: whoAmI.profileImgURL,
+      commentRole: whoAmI.roles
+      }
+      const commentObj = {
+      comments: commentObjBuild
+     
+    }      
+      updatePost(id, commentObj)
+    }
+  }
   
 
   const addLike = () => {
     if (id && whoAmI && !post.likes.find(l => l._id === whoAmI._id)) {
-      console.log("test", whoAmI);
       const postObj = {
         likes: whoAmI
       }
@@ -88,7 +104,7 @@ const MathPostPage = () => {
     <div className="forumWrapper">
 
       {post && user &&  <div className="forumBoard" >
-        <header className="forumHeader"><h3 onClick={() => history.push('/forum')} >FORUM / {post.title}</h3>
+        <header className="forumHeader"><h3 onClick={() => history.push('/forum/matematik')} >Matematik / {post.title}</h3>
                 <Tooltip title="SKAPA INLÄGG" arrow >
               <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
             </Tooltip></header>
@@ -98,7 +114,7 @@ const MathPostPage = () => {
           <span className="postByName"> {user.firstName}  {user.lastName}</span>} <span>,
             {post.postedDate}</span>
           <Tooltip title={renderLikedUsers()} arrow >
-            <span className="likes"> <span style={{fontSize: '20px', color: '#1a39e2'}}> { post.likes.length}</span> {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '6879d6' }} onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '#1a39e2' }}   />} </span>
+            <span className="likes"> <span style={{fontSize: '17px', color: '#1a39e2'}}> { post.likes.length}</span> {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '6879d6' }} onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '15px', color: '#1a39e2' }}   />} </span>
           </Tooltip>
         </div>
 
@@ -114,15 +130,20 @@ const MathPostPage = () => {
           </div>
           
         </div>
-        <hr/>
+        <hr />
+        
+        <div>
+          {post.comments.map(comment => {
+            return <CommentItem comment={comment}/>
+          })}
+        </div>
+
       <div className="underInfo">
             <div className="commentProfile">
               {whoAmI.profileImgURL ? <img className="profileIMG2" src={whoAmI.profileImgURL} alt="" /> : <img className="defaultIMG2" src={defaultIMG} alt="" />} 
             </div>
-              
-            
-            <textarea className="commentBox" cols="30" rows="10" placeholder=" skriv din kommentar här!"></textarea>
-            <button className="commentBtn"><SendIcon color="inherit"/></button>
+            <textarea className="commentBox" cols="30" rows="10" placeholder=" skriv din kommentar här!" ref={commentRef}></textarea>
+            <button className="commentBtn"><SendIcon onClick={addComment} color="inherit"/></button>
           </div>
         
       </div>}
@@ -130,9 +151,11 @@ const MathPostPage = () => {
       
 
       <div className="forumSideBoard">
-        <h1>sideBoard</h1>
-        <div style={{ background: 'yellow', width: '100%', height: '40%', marginBottom: '30px' }}></div>
-        <div style={{background: 'yellow', width: '100%', height: '40%'}}></div>
+        <h3 style={{textAlign: 'center', padding: '0', margin: '15px'}}>REKLAM</h3>
+        <div style={{ height: 'fit-content'}}>
+          <img src="https://i.postimg.cc/0jH8n61C/template.png" alt=""/>
+        </div>
+
       </div>
   
     </div>

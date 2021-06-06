@@ -148,6 +148,8 @@ app.put('/rest/users/:id', async (req, res) => {
     delete req.body.roles;
   }
 
+  
+
   Object.assign(user, req.body)
   await user.save()
   res.json(user)
@@ -177,7 +179,14 @@ app.post('/rest/posts/:id', async (req, res) => {
 
   let post = await model.findById(req.params.id)
 
-  post.likes.push(req.body.likes)
+  if (req.body.comments) {
+    post.comments.push(req.body.comments)
+  }
+
+  if (req.body.likes) {
+    post.likes.push(req.body.likes)
+  }
+  
   await post.save()
   res.json(post)
 })

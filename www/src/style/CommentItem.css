@@ -1,0 +1,35 @@
+.commentDivItem {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: rgb(198, 223, 231);
+}
+
+.commentDivItem .commentAvatarImg {
+  border-radius: 50%;
+  width: 60px;
+  margin-left: 35px;
+}
+
+.commentDivItem .commentRole {
+  text-align: center;
+}
+
+.commentDivItem .commentAvatar{
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.commentDivItem .commentContent {
+  border: 1px solid rgba(31, 31, 31, 0.233);
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.commentDivItem .commentName {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
