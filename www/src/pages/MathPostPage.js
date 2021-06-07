@@ -70,6 +70,7 @@ const MathPostPage = () => {
     }      
       updatePost(id, commentObj)
     }
+    commentRef.current.value = '';
   }
   
 
@@ -155,7 +156,6 @@ const MathPostPage = () => {
         <div style={{ height: 'fit-content'}}>
           <img src="https://i.postimg.cc/0jH8n61C/template.png" alt=""/>
         </div>
-
       </div>
   
     </div>

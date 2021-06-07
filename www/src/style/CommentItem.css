@@ -3,7 +3,8 @@
   grid-template-columns: 130px 1fr;
   margin-bottom: 10px;
   padding: 5px;
-  background-color: rgb(198, 223, 231);
+  background-color: rgb(212, 228, 233);
+  border-radius: 8px;
 }
 
 .commentDivItem .commentAvatarImg {
@@ -16,13 +17,13 @@
   text-align: center;
 }
 
-.commentDivItem .commentAvatar{
+.commentDivItem .commentAvatar {
   padding: 5px;
   border-radius: 5px;
 }
 
 .commentDivItem .commentContent {
-  border: 1px solid rgba(31, 31, 31, 0.233);
+  border: 1px solid rgba(31, 31, 31, 0.151);
   border-radius: 5px;
   padding: 10px;
   margin-left: 10px;
@@ -33,3 +34,4 @@
   padding: 0;
   margin: 0;
 }
+

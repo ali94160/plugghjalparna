@@ -50,9 +50,10 @@ const Forum = () => {
       </div>
 
       <div className="forumSideBoard">
-        <h1>sideBoard</h1>
-        <div style={{ background: 'yellow', width: '100%', height: '40%', marginBottom: '30px' }}></div>
-        <div style={{background: 'yellow', width: '100%', height: '40%'}}></div>
+        <h3 style={{textAlign: 'center', padding: '0', margin: '15px'}}>REKLAM</h3>
+        <div style={{ height: 'fit-content'}}>
+          <img src="https://i.postimg.cc/0jH8n61C/template.png" alt=""/>
+        </div>
       </div>
   
     </div>
