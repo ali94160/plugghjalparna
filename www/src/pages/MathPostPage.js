@@ -95,10 +95,15 @@ const MathPostPage = () => {
     if (post && post.userID && whoAmI) {
       fetchPosts()
       fetchUsers()
-    
     }
   }, []);
 
+  useEffect(() => {
+    const postViewObj = {
+      postViews: 1
+    }
+    updatePost(id, postViewObj);
+  }, []);
 
   
   return (
@@ -110,9 +115,9 @@ const MathPostPage = () => {
               <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
             </Tooltip></header>
 
-        <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" style={{fontSize: '17px'}} />} {post.isLocked && <LockSharpIcon color="error" style={{fontSize: '17px'}} />} </p>
-        <div className="postNameAndDate"> {user.roles === 'Administator' ? <span className="postByName" style={{ color: 'red', fontWeight: 'bold' }}> {user.firstName}  {user.lastName}</span> :
-          <span className="postByName"> {user.firstName}  {user.lastName}</span>} <span>,
+        <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" style={{fontSize: '17px'}} />} {post.isLocked && <LockSharpIcon color="error" style={{fontSize: '17px'}} />} <span style={{float: 'right', fontWeight: 'normal', fontSize: '18px'}}>besökare: {post.postViews}</span></p>
+        <div className="postNameAndDate" onClick={ () => history.push('/users/' +post.userID)}  > {user.roles === 'Administator' ? <span className="postByName" style={{ color: 'red', fontWeight: 'bold' }}> {user.firstName}  {user.lastName}</span> :
+          <span className="postByName">{user.firstName}  {user.lastName}</span>} <span>,
             {post.postedDate}</span>
           <Tooltip title={renderLikedUsers()} arrow >
             <span className="likes"> <span style={{fontSize: '17px', color: '#1a39e2'}}> { post.likes.length}</span> {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '6879d6' }} onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '15px', color: '#1a39e2' }}   />} </span>
@@ -132,20 +137,25 @@ const MathPostPage = () => {
           
         </div>
         <hr />
-        
+        {post.isLocked && <div>
+          <p style={{ fontSize: '17px', borderRadius: '5px', padding: '6px', backgroundColor: 'rgb(143, 204, 224)'}}><LockSharpIcon style={{fontSize: '15px'}} color="error" /> Inlägget är <span style={{ color: 'red', fontSize: '16px', fontWeight: 'bold' }}>LÅST</span></p>
+        </div>}
+
         <div>
           {post.comments.map(comment => {
             return <CommentItem comment={comment}/>
           })}
         </div>
 
-      <div className="underInfo">
-            <div className="commentProfile">
-              {whoAmI.profileImgURL ? <img className="profileIMG2" src={whoAmI.profileImgURL} alt="" /> : <img className="defaultIMG2" src={defaultIMG} alt="" />} 
-            </div>
-            <textarea className="commentBox" cols="30" rows="10" placeholder=" skriv din kommentar här!" ref={commentRef}></textarea>
-            <button className="commentBtn"><SendIcon onClick={addComment} color="inherit"/></button>
+        {!post.isLocked && <div className="underInfo">
+          <div className="commentProfile">
+            {whoAmI.profileImgURL ? <img className="profileIMG2" src={whoAmI.profileImgURL} alt="" /> : <img className="defaultIMG2" src={defaultIMG} alt="" />}
           </div>
+          <textarea className="commentBox" cols="30" rows="10" placeholder=" skriv din kommentar här!" ref={commentRef}></textarea>
+          <button className="commentBtn"><SendIcon onClick={addComment} color="inherit" /></button>
+        </div>}
+        <div style={{marginBottom: '10vh'}}></div>
+          
         
       </div>}
 

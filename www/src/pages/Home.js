@@ -1,13 +1,14 @@
 import React, {useEffect, useContext} from 'react';
 import '../style/Home.css';
 import { UserContext } from '../contexts/UserContextProvider'
-
+import { useHistory } from 'react-router-dom'
 
 const Home = () => {
 
   const { whoIsOnline, updateUser } = useContext(UserContext);
   const dateToday = new Date();
   const getOnlineDate = dateToday.toLocaleString().substring(0, 16);
+  const history = useHistory();
   
   const start = async () => {
     const user = await whoIsOnline();
@@ -31,8 +32,13 @@ const Home = () => {
     });
   },[])
   
-  const exploreHandler = () => {
-    console.log('knape');
+  const buttonHandler = (btn) => {
+    if (btn === 'register') {
+      history.push('/register')
+    }
+    if (btn === 'forum') {
+      history.push('/forum')
+    }
     
   }
 
@@ -42,11 +48,21 @@ const Home = () => {
    
 
       <div className="home">
-     
 
-      <div className="startTravel">
+        <img className="homeImage" src="https://www.trinity.qld.edu.au/wp-content/uploads/2020/06/Trinity_website_Two-new-Undergraduate-Certificates-Courses-available-now-at-Trinity.jpg" alt=""/>
+        <div className="startTravel">
+          
+          <div className="homeInfoDiv">
+            <p className="homeInfoP">Få tips och råd med dina studier av alla våra studenter och lärare.</p>
+          </div>
         <p>Till Forumet</p>
-        <button onClick={exploreHandler}  className="exploreBtn" >Utforska forumet nu</button>
+        <button onClick={() => buttonHandler('forum')}  className="exploreBtn" >Utforska forumet nu</button>
+        </div>
+
+        
+        <div className="startTravel" style={{float: 'right', marginRight: '10vw'}}>
+        <p>BLI MEDLEM</p>
+        <button onClick={() => buttonHandler('register')}  className="exploreBtn" >Registrera konto</button>
         </div>
       </div>
       </div>

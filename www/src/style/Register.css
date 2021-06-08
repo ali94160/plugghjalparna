@@ -1,26 +1,15 @@
 .register {
-  /* Set rules to fill background */
-
-  /* Set up proportionate scaling */
-  width: 1929px;
-  height: auto;
-  /* Set up positioning */
-  position: fixed;
-
-  min-height: 749px;
 }
 
 .register .grid-item-input {
-  position: fixed;
-  min-width: 700px;
-  margin-left: 655px;
-  margin-top: 255px;
+  margin-top: 15vh;
+
+  background-color: lightblue;
   opacity: 100%;
   padding: 20px;
   font-size: 30px;
-  text-align: center;
+
   border-radius: 5px;
-  border: none;
 }
 
 .register .inner-grid {
@@ -44,9 +33,9 @@
 }
 
 .register .grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
+  min-width: 500px;
+  width: 500px;
+  margin: 0 auto;
 }
 .register .grid-item {
   background-color: rgba(128, 128, 128, 0);
@@ -71,7 +60,7 @@
   border: none;
   padding: 10px;
   color: white;
-  background: rgb(165, 102, 19);
+  background: rgb(19, 165, 92);
   border-radius: 3px;
   cursor: pointer;
   font-size: 2vh;
@@ -81,11 +70,7 @@
   transform: scale(1.02);
   transition: 300ms;
 }
-.register {
-  background-size: cover;
-  min-height: 100%;
-  background-image: url("https://www.wyomingpublicmedia.org/sites/wpr/files/201801/genericclassroom.jpg");
-}
+
 /* LÅS form div med backgrounds bildens tavla */
 .register input[placeholder="First name"],
 [placeholder="Last name"],

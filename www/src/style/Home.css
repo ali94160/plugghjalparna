@@ -14,6 +14,23 @@
   z-index: -2;
 }
 
+.homeInfoDiv {
+  background-color: rgba(24, 24, 24, 0.322);
+  width: 40%;
+  height: 30%;
+  right: 10%;
+  position: absolute;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.homeInfoDiv .homeInfoP {
+  color: rgb(255, 255, 255);
+  text-transform: none;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
 .exploreBtn {
   border: 2px solid rgba(255, 255, 255, 0.589);
   text-decoration: none;
@@ -26,9 +43,10 @@
   letter-spacing: 2px;
   outline: none;
   text-decoration: none;
-  background-color: rgba(255, 234, 234, 0);
+  background-color: rgba(190, 190, 190, 0);
   cursor: pointer;
   overflow: hidden;
+  color: white;
 }
 
 .exploreBtn:hover {
@@ -48,6 +66,6 @@
   margin: 0 0 5px 0;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
-  color: #3b91c3;
-  letter-spacing: 6.2px;
+  color: #bdecff;
+  letter-spacing: 4.2px;
 }

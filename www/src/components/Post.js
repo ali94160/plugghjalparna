@@ -17,7 +17,7 @@ const Post = ({posts}) => {
          <span style={{marginLeft: '15px'}}>{posts.isPinned && <BookmarksSharpIcon style={{fontSize: '12px', marginRight: '3px'}} />}
           {posts.isLocked && <LockSharpIcon color="error" style={{fontSize: '12px'}} />}
         </span></p>
-      <p style={{margin: 0, color: '#323536'}}><span style={{ fontWeight: 'bold', fontSize: '12px', margin: 0 }}>AV:</span> {posts.postedByName}  {posts.postedByLastName}, <span>{posts.postedDate}</span><span style={{float: 'right', paddingRight: '10px'}}>visningar: {posts.postViews}</span></p>
+      <p style={{ margin: 0, color: '#323536' }}><span style={{ fontWeight: 'bold', fontSize: '12px', margin: 0 }}>AV:</span> {posts.userRole === 'Administator' ? <span style={{color: 'crimson'}}>{posts.postedByName}  {posts.postedByLastName}</span> : <span style={{color: 'rgb(0, 88, 170)'}}>{posts.postedByName}  {posts.postedByLastName}</span> }, <span>{posts.postedDate}</span><span style={{float: 'right', paddingRight: '10px'}}>visningar: {posts.postViews}</span></p>
       
       
     </div>

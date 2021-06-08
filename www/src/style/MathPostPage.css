@@ -103,3 +103,8 @@
   margin-top: 5%;
   margin-bottom: 10vh;
 }
+
+.postNameAndDate .postByName:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

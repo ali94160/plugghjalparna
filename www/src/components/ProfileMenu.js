@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContextProvider'
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import HomeWorkRoundedIcon from '@material-ui/icons/HomeWorkRounded';
-
+import PostAddRoundedIcon from '@material-ui/icons/PostAddSharp';
 
 
 
@@ -103,6 +103,13 @@ export default function CustomizedMenus() {
             <HomeWorkRoundedIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText primary="My Profile" />
+        </StyledMenuItem>
+
+        <StyledMenuItem onClick={() => history.push('/createPost')}>
+          <ListItemIcon>
+            <PostAddRoundedIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText primary="Skapa Inlägg" />
         </StyledMenuItem>
 
         <StyledMenuItem onClick={() => onLogOut()}>

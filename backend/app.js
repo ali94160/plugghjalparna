@@ -186,6 +186,12 @@ app.post('/rest/posts/:id', async (req, res) => {
   if (req.body.likes) {
     post.likes.push(req.body.likes)
   }
+
+  if (req.body.postViews) {
+    post.postViews = post.postViews + 1;
+    delete req.body.postViews;
+    Object.assign(post, req.body)
+  }
   
   await post.save()
   res.json(post)

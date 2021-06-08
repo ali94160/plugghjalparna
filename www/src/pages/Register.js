@@ -60,10 +60,7 @@ export default function CreateUser() {
     return (
       <div className="register">
         <div className="grid-container">
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
+ 
           <div className="grid-item-input">
             <form key="1" onSubmit={createUser}>
               <div className="inner-grid" ><input required ref={firstName} key="2" placeholder="First name" /></div>
@@ -86,14 +83,11 @@ export default function CreateUser() {
 
               <div className="inner-grid-btn">
                 {alreadyAUser && <p className="alreadyAUser">⚠️ Their is already a user with this email address..</p>}
-                <button className="registerButton" key="7">Register</button>
+                <button className="registerButton" key="7">Skapa konto</button>
               </div>
             </form>
           </div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
-          <div className="grid-item"></div>
+  
         </div>
       </div>
     );
