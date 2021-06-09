@@ -5,6 +5,8 @@ import '../style/Profile.css'
 import CheckCircleRoundedIcon from '@material-ui/icons/CheckCircleRounded';
 import SecurityRoundedIcon from '@material-ui/icons/SecurityRounded';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
+import ProfilePostItem from '../components/ProfilePostItem';
+import { PostContext } from '../contexts/PostContextProvider'
 
 const Profile = () => {
 
@@ -15,6 +17,8 @@ const Profile = () => {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
 
+    const { posts} = useContext(PostContext)
+  const post = posts.filter(p => p.userID === id);
   const defaultIMG = "https://i.postimg.cc/RCj6Y344/New-Project-7.png"
 
   
@@ -73,9 +77,11 @@ const Profile = () => {
        
       </div>}
 
-        <div>
-          {console.log(user.myPosts ,'posts?')}
-        </div>
+      {user && post && <div>
+        {post.map(post => {
+          return <ProfilePostItem thePost={post} id={id} />
+        })}
+      </div>}
     </div>
 
 

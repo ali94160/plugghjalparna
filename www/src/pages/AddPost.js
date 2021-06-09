@@ -60,6 +60,7 @@ const AddPost = () => {
     }
 
     let post2 = {
+
       myPosts: post
     }
     
