@@ -30,6 +30,13 @@
   font-family: "Montserrat", sans-serif;
   text-align: center;
 }
+.homeInfoDiv .homeInfoP2 {
+  color: rgb(255, 255, 255);
+  margin-top: 50px;
+  text-transform: none;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
 
 .exploreBtn {
   border: 2px solid rgba(255, 255, 255, 0.589);

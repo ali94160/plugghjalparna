@@ -53,7 +53,8 @@ const Home = () => {
         <div className="startTravel">
           
           <div className="homeInfoDiv">
-            <p className="homeInfoP">Få tips och råd med dina studier av alla våra studenter och lärare.</p>
+            <p className="homeInfoP">Få hjälp av lärare och studenter med dina studier.</p>
+            <p className="homeInfoP2">Skapa diskutioner med tusentals studenter.</p>
           </div>
         <p>Till Forumet</p>
         <button onClick={() => buttonHandler('forum')}  className="exploreBtn" >Utforska forumet nu</button>

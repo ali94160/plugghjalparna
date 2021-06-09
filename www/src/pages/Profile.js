@@ -72,6 +72,10 @@ const Profile = () => {
         </div>
        
       </div>}
+
+        <div>
+          {console.log(user.myPosts ,'posts?')}
+        </div>
     </div>
 
 

@@ -14,6 +14,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import PostAddSharpIcon from '@material-ui/icons/PostAddSharp';
 import SendIcon from '@material-ui/icons/Send';
 import CommentItem from '../components/CommentItem'
+import VisibilityRoundedIcon from '@material-ui/icons/VisibilityRounded';
 
 const MathPostPage = () => {
 
@@ -115,7 +116,7 @@ const MathPostPage = () => {
               <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
             </Tooltip></header>
 
-        <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" style={{fontSize: '17px'}} />} {post.isLocked && <LockSharpIcon color="error" style={{fontSize: '17px'}} />} <span style={{float: 'right', fontWeight: 'normal', fontSize: '18px'}}>besökare: {post.postViews}</span></p>
+        <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" style={{fontSize: '17px'}} />} {post.isLocked && <LockSharpIcon color="error" style={{fontSize: '17px'}} />} <span style={{float: 'right', fontWeight: 'normal', fontSize: '18px'}}><Tooltip title='besökare' arrow ><VisibilityRoundedIcon style={{fontSize: '14px'}} /></Tooltip> {post.postViews}</span></p>
         <div className="postNameAndDate" onClick={ () => history.push('/users/' +post.userID)}  > {user.roles === 'Administator' ? <span className="postByName" style={{ color: 'red', fontWeight: 'bold' }}> {user.firstName}  {user.lastName}</span> :
           <span className="postByName">{user.firstName}  {user.lastName}</span>} <span>,
             {post.postedDate}</span>

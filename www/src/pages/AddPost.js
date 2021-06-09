@@ -16,7 +16,7 @@ const AddPost = () => {
  const { fetchPosts } = useContext(PostContext)
   const dateToday = new Date();
   const getRegDate = dateToday.toLocaleString().substring(0, 16);
-  const { whoAmI } = useContext(UserContext);
+  const { whoAmI, updateUser } = useContext(UserContext);
   const { addPost } = useContext(PostContext)
   const [subject, setSubject] = useState();
   const [locked, setLocked] = useState(false);
@@ -59,10 +59,14 @@ const AddPost = () => {
       comments: []
     }
 
+    let post2 = {
+      myPosts: post
+    }
+    
     addPost(post);
+    updateUser(whoAmI._id , post2);
     history.push('/forum')
     fetchPosts();
-
   }
 
 

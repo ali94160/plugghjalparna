@@ -148,6 +148,10 @@ app.put('/rest/users/:id', async (req, res) => {
     delete req.body.roles;
   }
 
+  if (req.body.post) {
+    user.myPosts.push(req.body.post)
+  }
+
   
 
   Object.assign(user, req.body)
