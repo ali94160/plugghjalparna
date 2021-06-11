@@ -77,7 +77,8 @@ const Profile = () => {
        
       </div>}
 
-      {user && post && <div>
+      <p className="myPostsText">Mina inlägg</p>
+      {user && post && <div style={{overflow: 'auto', height: '300px'}}>
         {post.map(post => {
           return <ProfilePostItem thePost={post} id={id} />
         })}

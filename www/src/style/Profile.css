@@ -75,3 +75,8 @@
   margin: 0;
   font-size: 25px;
 }
+
+.profileDiv .myPostsText {
+  text-align: center;
+  width: 50%;
+}
