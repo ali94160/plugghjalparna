@@ -76,7 +76,7 @@ const AddPost = () => {
     <div className="addPost">
       <div className="formWrapper">
         <form onSubmit={submitHandler}>
-          <div className="postSetting">
+          {whoAmI && whoAmI.roles === 'Administator' && <div className="postSetting">
               <FormControl component="fieldset">
       <FormGroup aria-label="position" row>
           <FormControlLabel
@@ -100,25 +100,25 @@ const AddPost = () => {
         />      
       </FormGroup>
     </FormControl>
-          </div>
+          </div>}
       <h3> Vilket ämne ska inlägget publiceras?</h3>
       <select value={subject} onChange={changeOptionHandler} required className="optionBar" >
-        <option defaultValue="DEFAULT" disabled="disabled" >Subject?</option>
+        <option disabled="disabled" >Subject?</option>
         <option>Allmänt</option>
-        <option >Matematik</option>
+        <option defaultValue="DEFAULT" >Matematik</option>
         <option >Svenska</option>
         <option >Engelska</option>
-          <option >Nyheter</option>
+            {whoAmI && whoAmI.roles === 'Administator' && <option >Nyheter</option>}
       </select>
         
-          <p className="formTitle">Titel</p>
+          <h3>Titel</h3>
        
           <input required ref={title} className="inputTitle" type="text" placeholder="T.ex [Hjälp] ekvationen 5y+x(5+43)..." />
         
-        <p>Beskrivning</p> 
+        <h3>Text</h3>
         <textarea required ref={descRef} className="formTextBox" placeholder="Skriv något här..." name="w3review" rows="6" cols="100"></textarea>
 
-        <button className="formBtn">Create Post</button>
+        <button className="formBtn">Skapa inlägg</button>
         </form>
       </div>
       <div className="rules">

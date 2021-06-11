@@ -9,7 +9,7 @@ const PostList = ({posts, pinnedMathPosts}) => {
   return (
     <>
       {pinnedMathPosts && <div className="postListDiv">
-        {pinnedMathPosts.map(p => (
+        {pinnedMathPosts.reverse().map(p => (
           <Post key={p._id} posts={p} />
         ))}
       </div>}

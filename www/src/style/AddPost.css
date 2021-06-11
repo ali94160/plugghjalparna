@@ -45,15 +45,21 @@
 .formTextBox {
 }
 
-.formBtn {
+.addPost .formBtn {
   display: grid;
   outline: none;
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
-  background-color: rgb(3, 87, 0);
-  color: lightblue;
+  border: none;
+  background-color: lightblue;
+  color: rgb(49, 49, 49);
   border-radius: 5px;
+  border: 1px solid white;
+}
+
+.addPost .formBtn:hover {
+  color: black;
 }
 
 .rules {
@@ -70,7 +76,7 @@
   padding-bottom: 10px;
 }
 
-.addPost .postSetting{
+.addPost .postSetting {
   float: right;
   margin-right: 80px;
 }

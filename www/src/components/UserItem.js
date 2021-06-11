@@ -127,10 +127,9 @@ const UserItem = ({ user }) => {
       </div>
       {updateMsg && <p style={{ color: 'green' }}>{user.firstName} roll har uppdaterats.</p>}
       <div className={classes.modalStats}>
-        <p>Antal besökare: </p>
-        <p>Antal inlägg</p>
+        <p>Antal besökare: {user.profileViews} </p>
         <p>Användar ID: {user._id}</p>
-        <p>email:</p>
+        <p>Email: {user.email}</p>
       </div>
       
      
