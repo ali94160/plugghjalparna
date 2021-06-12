@@ -108,3 +108,30 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+.forumBoard .editPost {
+  max-width: 500px;
+  width: 100%;
+  height: fit-content;
+  outline: hidden;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.forumBoard .editPost:focus {
+  outline: green;
+  border: 1px solid rgb(17, 152, 197);
+  border-radius: 10px;
+}
+
+.forumBoard .editTitle {
+  font-size: 20px;
+  margin-right: 10px;
+  outline: none;
+  border: 1px solid rgb(28, 157, 200);
+  width: fit-content;
+  background-color: transparent;
+  border-radius: 5px;
+}

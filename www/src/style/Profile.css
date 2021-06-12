@@ -78,5 +78,9 @@
 
 .profileDiv .myPostsText {
   text-align: center;
-  width: 50%;
+}
+
+.profileDiv .profileBotInfo {
+  display: grid;
+  grid-template-columns: 1fr 50%;
 }

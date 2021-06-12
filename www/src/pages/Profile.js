@@ -77,12 +77,23 @@ const Profile = () => {
        
       </div>}
 
-      <p className="myPostsText">Mina inlägg</p>
-      {user && post && <div style={{overflow: 'auto', height: '300px'}}>
+      <div className="profileBotInfo">
+
+     
+        {user && post && <div style={{ overflow: 'auto', height: '300px' }}>
+           <p className="myPostsText">Mina inlägg</p>
         {post.map(post => {
           return <ProfilePostItem thePost={post} id={id} />
         })}
       </div>}
+
+ 
+     
+        <div>
+             <p className="myPostsText">Mina märken & poäng</p>
+          </div>
+         </div>
+      
     </div>
 
 

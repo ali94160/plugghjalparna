@@ -15,6 +15,8 @@ import PostAddSharpIcon from '@material-ui/icons/PostAddSharp';
 import SendIcon from '@material-ui/icons/Send';
 import CommentItem from '../components/CommentItem'
 import VisibilityRoundedIcon from '@material-ui/icons/VisibilityRounded';
+import EditRoundedIcon from '@material-ui/icons/EditRounded';
+import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
 
 const MathPostPage = () => {
 
@@ -29,6 +31,8 @@ const MathPostPage = () => {
   const commentRef = useRef('');
   const dateToday = new Date();
   const getRegDate = dateToday.toLocaleString().substring(0, 16);
+  const [editText, setEditText] = useState(false);
+  const [editTitle, setEditTitle] = useState(false);
   
 
   // TODO: fetcha data för o visa antal posts i varje subforum. OnClick to specefik subforum inlägg. 
@@ -84,6 +88,14 @@ const MathPostPage = () => {
     }
   }
 
+  const editTitleHandler = () => {
+    setEditTitle(!editTitle);
+  }
+
+  const editTextHandler = () => {
+    setEditText(!editText);
+  }
+
 
   useEffect(() => {
     if(whoAmI && post)
@@ -116,12 +128,24 @@ const MathPostPage = () => {
               <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
             </Tooltip></header>
 
-        <p className="topicTitle"> {post.title} {post.isPinned && <BookmarksSharpIcon color="primary" style={{fontSize: '17px'}} />} {post.isLocked && <LockSharpIcon color="error" style={{fontSize: '17px'}} />} <span style={{float: 'right', fontWeight: 'normal', fontSize: '18px'}}><Tooltip title='besökare' arrow ><VisibilityRoundedIcon style={{fontSize: '14px'}} /></Tooltip> {post.postViews}</span></p>
-        <div className="postNameAndDate" onClick={ () => history.push('/users/' +post.userID)}  > {user.roles === 'Administator' ? <span className="postByName" style={{ color: 'red', fontWeight: 'bold' }}> {user.firstName}  {user.lastName}</span> :
-          <span className="postByName">{user.firstName}  {user.lastName}</span>} <span>,
+        <p className="topicTitle"> {!editTitle ? <input className="editTitle" type='text' placeholder={post.title}></input> : <span>{post.title} </span> }
+          { post.isPinned && <BookmarksSharpIcon color="primary" style={{ fontSize: '17px'}} />}
+          {post.isLocked && <LockSharpIcon color="error" style={{ fontSize: '17px'}} />}
+          <EditRoundedIcon style={{ cursor: 'pointer', marginLeft: '5px', fontSize: '15px'}} onClick={editTitleHandler} />
+          {!editTitle && <CheckRoundedIcon style={{ marginLeft: '5px', cursor: 'pointer', color: 'green', fontSize: '15px'}} />}
+          <span style={{ float: 'right', fontWeight: 'normal', fontSize: '18px' }}>
+            <Tooltip title='besökare' arrow ><VisibilityRoundedIcon style={{ fontSize: '14px' }} />
+            </Tooltip> {post.postViews}</span></p>
+        
+        <div className="postNameAndDate" > {user.roles === 'Administator' ? <span className="postByName" onClick={ () => history.push('/users/' + post.userID)} style={{ color: 'red', fontWeight: 'bold' }}> {user.firstName}  {user.lastName}</span> :
+          <span className="postByName" onClick={ () => history.push('/users/' + post.userID)}>{user.firstName}  {user.lastName}</span>} <span>,
             {post.postedDate}</span>
           <Tooltip title={renderLikedUsers()} arrow >
             <span className="likes"> <span style={{fontSize: '17px', color: '#1a39e2'}}> { post.likes.length}</span> {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '6879d6' }} onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '15px', color: '#1a39e2' }}   />} </span>
+          </Tooltip>
+          {!editText && <CheckRoundedIcon style={{ marginLeft: '5px', cursor: 'pointer', color: 'green', float: 'right', fontSize: '15px'}} />}
+           <Tooltip title="Redigera" arrow >
+            <EditRoundedIcon style={{ float: 'right', cursor: 'pointer', fontSize: '15px'}} onClick={() => editTextHandler()} />
           </Tooltip>
         </div>
 
@@ -133,7 +157,9 @@ const MathPostPage = () => {
           </div>
           
           <div className="postInfo">
-            <div><p>{post.description}</p></div>
+            <div>
+              {editText ? <p>{post.description}</p> : <textarea className="editPost" cols="30" rows="5" >{post.description}</textarea>}
+            </div>
           </div>
           
         </div>

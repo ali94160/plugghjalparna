@@ -15,7 +15,7 @@ const ProfilePostItem = ({id, thePost}) => {
 
 
   return ( 
- <div className="postDiv" style={{backgroundColor: 'lightblue', padding: '3px', marginTop: '10px', cursor: 'pointer', width: '50%'}} onClick={ () => history.push('/forum/matematik/' + thePost._id)}>
+ <div className="postDiv" style={{backgroundColor: 'lightblue', padding: '3px', marginTop: '10px', cursor: 'pointer', width: '100%'}} onClick={ () => history.push('/forum/matematik/' + thePost._id)}>
       {post && <p className="postTitle" style={{ fontWeight: 'bold' }}> {thePost.title}
         <span style={{ marginLeft: '15px' }}>{thePost.isPinned && <BookmarksSharpIcon style={{ fontSize: '12px', marginRight: '3px' }} />} 
           {thePost.isLocked && <LockSharpIcon color="error" style={{ fontSize: '12px' }} />}
