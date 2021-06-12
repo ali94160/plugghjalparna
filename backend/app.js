@@ -196,6 +196,19 @@ app.post('/rest/posts/:id', async (req, res) => {
     delete req.body.postViews;
     Object.assign(post, req.body)
   }
+
+  if (req.body.title) {
+    post.title = req.body.title;
+    delete req.body.title;
+    Object.assign(post, req.body)
+  }
+
+  if (req.body.description) {
+    post.description = req.body.description;
+    delete req.body.description;
+    Object.assign(post, req.body)
+  }
+     
   
   await post.save()
   res.json(post)

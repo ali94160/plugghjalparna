@@ -33,6 +33,8 @@ const MathPostPage = () => {
   const getRegDate = dateToday.toLocaleString().substring(0, 16);
   const [editText, setEditText] = useState(false);
   const [editTitle, setEditTitle] = useState(false);
+  const titleRef = useRef();
+  const textRef = useRef();
   
 
   // TODO: fetcha data för o visa antal posts i varje subforum. OnClick to specefik subforum inlägg. 
@@ -96,6 +98,21 @@ const MathPostPage = () => {
     setEditText(!editText);
   }
 
+  const updatePostTitle = () => {
+    const titleObj = {
+      title: titleRef.current.value
+    }
+    updatePost(id, titleObj);
+    setEditTitle(false);
+  }
+
+  const updatePostText = () => {
+    const textObj = {
+      description: textRef.current.value
+    }
+    updatePost(id, textObj);
+    setEditText(false);
+  }
 
   useEffect(() => {
     if(whoAmI && post)
@@ -128,11 +145,11 @@ const MathPostPage = () => {
               <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
             </Tooltip></header>
 
-        <p className="topicTitle"> {!editTitle ? <input className="editTitle" type='text' placeholder={post.title}></input> : <span>{post.title} </span> }
+        <p className="topicTitle"> {editTitle ? <input className="editTitle" type='text' ref={titleRef} placeholder={post.title}></input> : <span>{post.title} </span> }
           { post.isPinned && <BookmarksSharpIcon color="primary" style={{ fontSize: '17px'}} />}
           {post.isLocked && <LockSharpIcon color="error" style={{ fontSize: '17px'}} />}
           <EditRoundedIcon style={{ cursor: 'pointer', marginLeft: '5px', fontSize: '15px'}} onClick={editTitleHandler} />
-          {!editTitle && <CheckRoundedIcon style={{ marginLeft: '5px', cursor: 'pointer', color: 'green', fontSize: '15px'}} />}
+          {editTitle && <CheckRoundedIcon style={{ marginLeft: '5px', cursor: 'pointer', color: 'green', fontSize: '15px'}} onClick={updatePostTitle} />}
           <span style={{ float: 'right', fontWeight: 'normal', fontSize: '18px' }}>
             <Tooltip title='besökare' arrow ><VisibilityRoundedIcon style={{ fontSize: '14px' }} />
             </Tooltip> {post.postViews}</span></p>
@@ -143,7 +160,7 @@ const MathPostPage = () => {
           <Tooltip title={renderLikedUsers()} arrow >
             <span className="likes"> <span style={{fontSize: '17px', color: '#1a39e2'}}> { post.likes.length}</span> {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '6879d6' }} onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '15px', color: '#1a39e2' }}   />} </span>
           </Tooltip>
-          {!editText && <CheckRoundedIcon style={{ marginLeft: '5px', cursor: 'pointer', color: 'green', float: 'right', fontSize: '15px'}} />}
+          {editText && <CheckRoundedIcon style={{ marginLeft: '5px', cursor: 'pointer', color: 'green', float: 'right', fontSize: '15px'}} onClick={updatePostText} />}
            <Tooltip title="Redigera" arrow >
             <EditRoundedIcon style={{ float: 'right', cursor: 'pointer', fontSize: '15px'}} onClick={() => editTextHandler()} />
           </Tooltip>
@@ -158,7 +175,7 @@ const MathPostPage = () => {
           
           <div className="postInfo">
             <div>
-              {editText ? <p>{post.description}</p> : <textarea className="editPost" cols="30" rows="5" >{post.description}</textarea>}
+              {editText ? <textarea ref={textRef} className="editPost" cols="30" rows="5" >{post.description}</textarea> : <p>{post.description}</p>}
             </div>
           </div>
           
