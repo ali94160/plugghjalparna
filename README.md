@@ -8,15 +8,22 @@
 The post is locked and pinned. therefor users can't comment the post. Only Admins can change this status.
 
 ![Forum Post EditMode](https://i.postimg.cc/FKVZLQfM/Ska-rmavbild-2021-06-17-kl-03-02-19.png)
+This is the "Edit Mode" of a post. A user can edit their own post BUT Admins can edit anyone's posts.
 ![Forum Post likes](https://i.postimg.cc/k4MyNhKB/Ska-rmavbild-2021-06-17-kl-03-04-14.png)
 ![Forum Post Comment](https://i.postimg.cc/4yqbgfM9/Ska-rmavbild-2021-06-17-kl-03-06-45.png)
+ Comments of users. If the user is a "Premium" user the border will be in the theme color.
 
 ![Forum Create Post](https://i.postimg.cc/V6Nj00Pt/Ska-rmavbild-2021-06-17-kl-03-07-09.png)
+Creating a post view. Note that only Admins can choose "pinned/locked" post.
 ![Forum User list](https://i.postimg.cc/kgcwpb9V/Ska-rmavbild-2021-06-17-kl-03-07-34.png)
+Searching for an user that includes "Al" in their names.
 ![Profile Page Premium view](https://i.postimg.cc/ncTD8Yjt/Ska-rmavbild-2021-06-17-kl-03-07-55.png)
+User Profile: This user is a premium, therefor the theme is abit different.
 
 ![Profile Page Standard view](https://i.postimg.cc/Kzn10nSw/Ska-rmavbild-2021-06-17-kl-03-08-19.png)
+User Profile: This user is a standard user. You can see some info and their posts below.
 ![Userlist admin rights](https://i.postimg.cc/YChj5cB1/Ska-rmavbild-2021-06-17-kl-03-09-13.png)
+ Admin / Moderator option when clicking on the "setting icon" next to their names in the User List.
 
 This project is made by: [Ali94160](https://github.com/ali94160)
 
