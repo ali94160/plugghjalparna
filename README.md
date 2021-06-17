@@ -3,7 +3,9 @@
 ![HomePage Image](https://i.postimg.cc/XY3ByBwv/Ska-rmavbild-2021-06-17-kl-03-10-00.png)
 ![Forum](https://i.postimg.cc/9fDm4cNM/Ska-rmavbild-2021-06-17-kl-02-58-39.png)
 ![Forum](https://i.postimg.cc/KzbH6NL2/Ska-rmavbild-2021-06-17-kl-02-58-59.png)
+ All the post in the math subject are shown. Pinned posts at the top and latest directly under the latest Pinned post.
 ![Forum Post](https://i.postimg.cc/4368Q90F/Ska-rmavbild-2021-06-17-kl-03-01-05.png)
+The post is locked and pinned. therefor users can't comment the post. Only Admins can change this status.
 
 ![Forum Post EditMode](https://i.postimg.cc/FKVZLQfM/Ska-rmavbild-2021-06-17-kl-03-02-19.png)
 ![Forum Post likes](https://i.postimg.cc/k4MyNhKB/Ska-rmavbild-2021-06-17-kl-03-04-14.png)
