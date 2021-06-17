@@ -1,5 +1,6 @@
 # PluggHjalparna
 
+![HomePage Image](https://i.postimg.cc/XY3ByBwv/Ska-rmavbild-2021-06-17-kl-03-10-00.png)
 This project is made by: [Ali94160](https://github.com/ali94160)
 
 ## What is PluggHjälparna?
