@@ -14,7 +14,8 @@ const Users = mongoose.model('user', {
   lastTimeOnline: { type: String },
   profileViews: { type: Number },
   aboutMeText: { type: String },
-  banTime: { type: Number }
+  banTime: { type: Number },
+  premium: { type: Boolean }
 });
 
 

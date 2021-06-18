@@ -23,6 +23,10 @@
   position: relative;
   top: -3px;
 }
+.postDivInfo .imageCard p {
+  margin: 0 auto;
+  align-self: center;
+}
 
 .forumBoard .postByName {
   color: rgb(0, 88, 170);
@@ -55,7 +59,8 @@
 
 .postDivInfo .imageCard {
   width: 200px;
-  padding-left: 40px;
+  justify-items: center;
+  margin-left: 15%;
 }
 
 .forumBoard .underInfo .commentBox {
@@ -134,4 +139,20 @@
   width: fit-content;
   background-color: transparent;
   border-radius: 5px;
+}
+
+.forumWrapper .forumHeader2 {
+  background-color: lightblue;
+  margin: 0;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 3% 92% 5%;
+  height: 53px;
+  box-sizing: border-box;
+}
+
+.forumWrapper .forumHeader2 h3 {
+  margin: 0;
+  margin: 10px 10px 0 5px;
+  height: 50px;
 }

@@ -1,0 +1,17 @@
+.premiumDiv .premiumBorder {
+  background: -webkit-linear-gradient(left, #f06800 30%, #f89d57);
+  height: 25px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+.premiumDiv span {
+  position: relative;
+  top: -4px;
+  color: #ffdf00;
+}
+
+.premiumDiv {
+  margin-left: 70px;
+  margin-bottom: 1vh;
+}

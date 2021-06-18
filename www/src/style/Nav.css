@@ -1,7 +1,7 @@
 .nav-bar {
   z-index: 120 !important;
   display: grid;
-  grid-template-columns: 15% 75% 20%;
+  grid-template-columns: 15% 73% 22%;
   height: 10vh;
   min-height: 50px;
   background: rgb(255, 255, 255);

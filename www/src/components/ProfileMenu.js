@@ -75,6 +75,7 @@ export default function CustomizedMenus() {
     history.push('/');
   }
 
+
   return (
     <div className="profileMenu">
       {whoAmI && <Button
@@ -83,10 +84,10 @@ export default function CustomizedMenus() {
         onClick={handleClick}>
         
         
-        <p className="welcomeMsg" >{whoAmI && whoAmI.firstName} ●</p> 
-        <AccountCircleIcon
+        <p className="welcomeMsg" >{whoAmI && whoAmI.firstName} </p> 
+        {whoAmI.profileImgURL === '' ? <AccountCircleIcon
           color='primary'
-          fontSize="large" />
+          fontSize="large" /> : <img className="profileMenuImg" src={whoAmI.profileImgURL} alt=""/> && whoAmI.premium === true ? <img className="profileMenuImg" style={{border: '2px solid #f06800'}} src={whoAmI.profileImgURL} alt=""/> : <img className="profileMenuImg" src={whoAmI.profileImgURL} alt=""/> }
           
         
       </Button>}

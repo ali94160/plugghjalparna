@@ -78,9 +78,24 @@
 
 .profileDiv .myPostsText {
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  margin-top: 6px;
+}
+
+.profileDiv .myPostsText2 {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
 }
 
 .profileDiv .profileBotInfo {
   display: grid;
   grid-template-columns: 1fr 50%;
+}
+
+.profileBotInfo .coinIcon {
+  width: 18px;
+  height: 18px;
+  padding: 0 3px 0 0;
 }

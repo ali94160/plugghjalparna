@@ -2,6 +2,10 @@
   opacity: 80%;
 }
 
+.profileMenu{
+  margin-right: 50px;
+}
+
 .MuiSvgIcon-root {
   transform: scale(1.3);
   margin-top: 10px;
@@ -15,6 +19,14 @@
   color: green;
   min-width: 20px;
   padding-top: 10px;
+}
+
+.profileMenu .profileMenuImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 9999;
+
 }
 
 .MuiButton-root:hover {

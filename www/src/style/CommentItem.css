@@ -6,6 +6,33 @@
   background-color: rgb(212, 228, 233);
   border-radius: 8px;
 }
+.commentDivItemPremium {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: rgb(212, 228, 233);
+  border-radius: 8px;
+  border: 1px solid orange;
+}
+
+.commentDivItemPremium .commentAvatarImg {
+  border-radius: 50%;
+  width: 60px;
+  margin-left: 35px;
+}
+
+.commentDivItemPremium.commentAvatarImg {
+  border-radius: 50%;
+  width: 60px;
+  margin-left: 35px;
+}
+
+.commentDivItemPremium .commentAvatarImg {
+  border-radius: 50%;
+  width: 60px;
+  margin-left: 35px;
+}
 
 .commentDivItem .commentAvatarImg {
   border-radius: 50%;
@@ -17,12 +44,14 @@
   text-align: center;
 }
 
-.commentDivItem .commentAvatar {
+.commentDivItem .commentAvatar ,
+.commentDivItemPremium .commentAvatar {
   padding: 5px;
   border-radius: 5px;
 }
 
-.commentDivItem .commentContent {
+.commentDivItem .commentContent,
+.commentDivItemPremium .commentContent {
   border: 1px solid rgba(31, 31, 31, 0.151);
   border-radius: 5px;
   padding: 10px;
@@ -34,4 +63,3 @@
   padding: 0;
   margin: 0;
 }
-

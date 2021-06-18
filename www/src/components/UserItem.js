@@ -12,7 +12,7 @@ import NotInterestedRoundedIcon from '@material-ui/icons/NotInterestedRounded';
 import { makeStyles } from '@material-ui/core/styles';
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import Modal from '@material-ui/core/Modal';
-
+import PremiumBadge from './PremiumBadge';
 
 const UserItem = ({ user }) => {
 
@@ -146,6 +146,7 @@ const UserItem = ({ user }) => {
           {user.profileImgURL ? <img className="profileIMG" src={user.profileImgURL} alt="" /> : <img className="defaultIMG" src={defaultIMG} alt="" />}
           {user.banTime ? <NotInterestedRoundedIcon fontSize="small" color="secondary" style={{marginLeft: '-25px'}} /> : ''}
           {user.roles === 'Member' ? <p><CheckCircleRoundedIcon fontSize="small" /><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small" /><span> {user.roles}</span></p>}
+                  
         </div>
         <div className="infoCard">
           <p onClick={goToProfilePage}><PersonRoundedIcon fontSize="small"/> <span className="nameSpan"> {user.firstName} {user.lastName}</span></p>

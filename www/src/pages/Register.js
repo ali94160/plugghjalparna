@@ -43,7 +43,8 @@ export default function CreateUser() {
       lastTimeOnline: '',
       profileViews: 0,
       aboutMeText: aboutMeText.current.value,
-      banTime: ''
+      banTime: '',
+      premium: false
 
     }
     const res = await addUser(user);

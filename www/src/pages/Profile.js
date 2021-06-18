@@ -7,6 +7,8 @@ import SecurityRoundedIcon from '@material-ui/icons/SecurityRounded';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import ProfilePostItem from '../components/ProfilePostItem';
 import { PostContext } from '../contexts/PostContextProvider'
+import ListAltRoundedIcon from '@material-ui/icons/ListAltRounded';
+import PremiumBadge from '../components/PremiumBadge';
 
 const Profile = () => {
 
@@ -59,20 +61,21 @@ const Profile = () => {
       {user && <div className="checkWrapper">
         <div className="imgDiv">
           {user.profileImgURL ? <img className="profileIMG" src={user.profileImgURL} alt="" /> : <img className="defaultIMG" src={defaultIMG} alt="" style={{width: '60%'} } />}
-          {user.roles === 'Member' ? <p><CheckCircleRoundedIcon fontSize="small"/><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small"/><span> {user.roles}</span></p>}
+          {user.roles === 'Member' ? <p><CheckCircleRoundedIcon fontSize="small" /><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small" /><span> {user.roles}</span></p>}
+          {user.premium && <PremiumBadge />}
         </div>
         <div className="profileInfo">
-          <p><span>Namn </span><p>{user.firstName}</p></p>
-          <p><span>Efternamn </span><p>{user.lastName}</p></p>
-          <p><span>Ålder </span><p>{user.age}</p></p>
-          <p><span>Om mig </span><p>{user.aboutMeText}</p></p>
+          <p>{!user.premium ? <span>Namn </span> : <span style={{color: '#db6001'}}>Namn </span>}<p>{user.firstName}</p></p>
+          <p>{!user.premium ? <span>Efternamn </span> : <span style={{color: '#db6001'}}>Efternamn </span>}<p>{user.lastName}</p></p>
+          <p>{!user.premium ? <span>Ålder </span> : <span style={{color: '#db6001'}}>Ålder </span>}<p>{user.age}</p></p>
+          <p>{!user.premium ? <span>Omg mig </span> : <span style={{color: '#db6001'}}>Omg mig </span>}<p>{user.aboutMeText}</p></p>
          
         </div>
         <div className="profileInfo2">
-          <p><span>Medlem sedan </span><p>{user.createdTime}</p></p>
-          <p><span>Senast inloggad</span><p>{date}</p></p>
-          <p><span>Klockan</span><p>{time}</p></p>
-          <p><span>Antal besökare </span><p>{user.profileViews}</p></p>
+          <p>{!user.premium ? <span>Medlem sedan </span> : <span style={{color: '#db6001'}}>Medlem sedan </span>}<p>{user.createdTime}</p></p>
+          <p>{!user.premium ? <span>Senast inloggad </span> : <span style={{color: '#db6001'}}>Senast inloggad </span>}<p>{date}</p></p>
+          <p>{!user.premium ? <span>Klockan </span> : <span style={{color: '#db6001'}}>Klockan </span>}<p>{time}</p></p>
+          <p>{!user.premium ? <span>Antal besökare </span> : <span style={{color: '#db6001'}}>Antal besökare </span>}<p>{user.profileViews}</p></p>
         </div>
        
       </div>}
@@ -80,8 +83,8 @@ const Profile = () => {
       <div className="profileBotInfo">
 
      
-        {user && post && <div style={{ overflow: 'auto', height: '300px' }}>
-           <p className="myPostsText">Mina inlägg</p>
+        {user && post && <div style={{ overflow: 'auto', height: '300px'}}>
+          <p className="myPostsText"><ListAltRoundedIcon style={{ fontSize: '15px' }} /> {user.premium ? <span style={{color: '#db6001'}}>Mina inlägg</span> : <span>Mina inlägg</span>}</p>
         {post.map(post => {
           return <ProfilePostItem thePost={post} id={id} />
         })}
@@ -90,7 +93,7 @@ const Profile = () => {
  
      
         <div>
-             <p className="myPostsText">Mina märken & poäng</p>
+          <p className="myPostsText2"><img className="coinIcon" src='https://image.flaticon.com/icons/png/512/61/61483.png' alt=''></img>{user.premium ? <span style={{color: '#db6001'}}>Mina märken & Mynt</span> : <span>Mina märken & Mynt</span>}</p>
           </div>
          </div>
       

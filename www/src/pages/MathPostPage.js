@@ -17,6 +17,9 @@ import CommentItem from '../components/CommentItem'
 import VisibilityRoundedIcon from '@material-ui/icons/VisibilityRounded';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
+import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
+import PremiumBadge from '../components/PremiumBadge';
+
 
 const MathPostPage = () => {
 
@@ -69,7 +72,8 @@ const MathPostPage = () => {
       commentBy: `${whoAmI.firstName} ${ whoAmI.lastName}`,
       commentDate: getRegDate,
       commentAvatar: whoAmI.profileImgURL,
-      commentRole: whoAmI.roles
+      commentRole: whoAmI.roles,
+      commentPremium: whoAmI.premium
       }
       const commentObj = {
       comments: commentObjBuild
@@ -140,18 +144,19 @@ const MathPostPage = () => {
     <div className="forumWrapper">
 
       {post && user &&  <div className="forumBoard" >
-        <header className="forumHeader"><h3 onClick={() => history.push('/forum/matematik')} >Matematik / {post.title}</h3>
-                <Tooltip title="SKAPA INLÄGG" arrow >
+        <header className="forumHeader2"><ArrowBackRoundedIcon onClick={ () =>  history.push('/forum/matematik') } fontSize="small" style={{cursor: 'pointer'}} /><h3>Matematik / {post.title}</h3>
+          <Tooltip title="SKAPA INLÄGG" arrow >
               <PostAddSharpIcon style={{cursor: "pointer"}} onClick={ () => history.push('/createPost')} />
-            </Tooltip></header>
+          </Tooltip>
+        </header>
 
         <p className="topicTitle"> {editTitle ? <input className="editTitle" type='text' ref={titleRef} placeholder={post.title}></input> : <span>{post.title} </span> }
-          { post.isPinned && <BookmarksSharpIcon color="primary" style={{ fontSize: '17px'}} />}
+          { post.isPinned && <Tooltip title="FASTNÅLAT INLÄGG" arrow ><BookmarksSharpIcon color="primary" style={{ fontSize: '17px'}} /></Tooltip>}
           {post.isLocked && <LockSharpIcon color="error" style={{ fontSize: '17px'}} />}
-          <EditRoundedIcon style={{ cursor: 'pointer', marginLeft: '5px', fontSize: '15px'}} onClick={editTitleHandler} />
+          {whoAmI._id === post.userID | whoAmI.roles === 'Administator' ? <EditRoundedIcon style={{ cursor: 'pointer', marginLeft: '5px', fontSize: '15px' }} onClick={editTitleHandler} /> : ''}
           {editTitle && <CheckRoundedIcon style={{ marginLeft: '5px', cursor: 'pointer', color: 'green', fontSize: '15px'}} onClick={updatePostTitle} />}
           <span style={{ float: 'right', fontWeight: 'normal', fontSize: '18px' }}>
-            <Tooltip title='besökare' arrow ><VisibilityRoundedIcon style={{ fontSize: '14px' }} />
+            <Tooltip title='Antal Besökare' arrow ><VisibilityRoundedIcon style={{ fontSize: '14px' }} />
             </Tooltip> {post.postViews}</span></p>
         
         <div className="postNameAndDate" > {user.roles === 'Administator' ? <span className="postByName" onClick={ () => history.push('/users/' + post.userID)} style={{ color: 'red', fontWeight: 'bold' }}> {user.firstName}  {user.lastName}</span> :
@@ -161,16 +166,17 @@ const MathPostPage = () => {
             <span className="likes"> <span style={{fontSize: '17px', color: '#1a39e2'}}> { post.likes.length}</span> {whoAmI && likeCheck ? <ThumbUpOutlinedIcon style={{ fontSize: '17px', color: '6879d6' }} onClick={addLike} /> : <ThumbUpOutlinedIcon style={{ fontSize: '15px', color: '#1a39e2' }}   />} </span>
           </Tooltip>
           {editText && <CheckRoundedIcon style={{ marginLeft: '5px', cursor: 'pointer', color: 'green', float: 'right', fontSize: '15px'}} onClick={updatePostText} />}
-           <Tooltip title="Redigera" arrow >
-            <EditRoundedIcon style={{ float: 'right', cursor: 'pointer', fontSize: '15px'}} onClick={() => editTextHandler()} />
-          </Tooltip>
+          { whoAmI._id === post.userID | whoAmI.roles === 'Administator' ? <Tooltip title="Redigera" arrow >
+            <EditRoundedIcon style={{ float: 'right', cursor: 'pointer', fontSize: '15px' }} onClick={() => editTextHandler()} />
+          </Tooltip> : ''}
         </div>
 
         <div className="postDivInfo" >
           <div className="imageCard" style={{position: 'relative', top: '-60px'}}>
             {post.userProfileAvatar ? <img className="profileIMG" src={post.userProfileAvatar} alt="" /> : <img className="defaultIMG" src={defaultIMG} alt="" />}
             {user.banTime ? <NotInterestedRoundedIcon fontSize="small" color="secondary" style={{ marginLeft: '-25px' }} /> : ''}
-            {user.roles === 'Member' ? <p><CheckCircleRoundedIcon fontSize="small" /><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small" /><span> {user.roles}</span></p>}
+            {user.roles === 'Member' ? <p><CheckCircleRoundedIcon style={{marginLeft: '10px'}} fontSize="small" /><span> {user.roles}</span></p> : <p><SecurityRoundedIcon color="error" fontSize="small" /><span> {user.roles}</span></p>}
+            {user.premium && <p style={{position: 'relative', left: '-30%'}}><PremiumBadge/></p>}
           </div>
           
           <div className="postInfo">
